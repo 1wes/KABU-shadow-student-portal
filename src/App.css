@@ -1,38 +1,176 @@
-.App {
+
+body{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  background-color: rgb(54, 0, 0);
+}
+
+h3{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login{
+  margin: 0 auto !important;
+  width: 30em;  
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+}
+
+.login-form{
+  color: whitesmoke;
+  width: 80%;
+}
+
+.login-details{
+  border-radius: 10px;
+  width: 100%;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+}
+
+
+img{
+  height: auto;
+  width: 100%;
+  max-width: 30%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+form{
+  max-width:100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+input{
+  display: block;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  width: 100%;
+}
+
+input:focus{
+  border: none;
+}
+
+input::placeholder{
+  font-size: 12px;
+}
+
+.forgot-password{
+  font-size: 10px;
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+h2{
+  padding: 2px 0 0 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button{
+  display: flex;
+  justify-content: center;
+}
+
+button{
+  display: flex;
+  padding: 10px;
+  background-color: rgb(70, 216, 70);
+  border-radius: 50px;
+  border: none;
+  color: black;
+  margin-top: 20px;
+  transition: padding 1s;
+  width: 50%;
+  justify-content: center;
+  font-weight: bold;
+}
+
+button:hover{
+  padding: 10.5px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width:760px){
+
+  .login{
+    height: 100vh;
+    margin: 0 auto !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .login-form{
+    width: 80%;
+    /* background-color: red; */
   }
+
+  .login-details{
+    border-radius: 10px;
+    width: 100%;
+    /* background-color: yellow; */
+  }
+
+  .logo{
+    display: flex;
+    justify-content: center;
+  }
+
+  img{
+    height: auto;
+    width: 100%;
+    max-width: 50%;
+  }
+
+  form{
+    max-width:100%;
+  }
+
+  input{
+    display: block;
+    padding: 15px;
+    width: 93%;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+  }
+
+  input:focus{
+    font-size: 18px;
+  }
+
+  input::placeholder{
+    font-size: 16px;
+  }
+  
+  button{
+    font-size: 20px;
+  }
+
+  .forgot-password{
+    font-size: 15px;
+  }
+
+  label{
+    font-size: 20px;
+  }
+
+  h3{
+    font-size: 22px;
+  }
+
 }

@@ -16,7 +16,7 @@ const db_conn=mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'root',
-    database:'reactnodeapp'
+    database:'KABU_shadow_portal'
 });
 
 // make the connection
@@ -41,7 +41,7 @@ app.post("/server/intro", (req, res)=>{
     }
 
     // insert the details into the database
-    let insert_sql="INSERT INTO users SET ?";
+    let insert_sql="INSERT INTO students SET ?";
 
     let query=db_conn.query(insert_sql, user_data, (err, result)=>{
 

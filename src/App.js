@@ -10,11 +10,11 @@ class App extends React.Component{
     super(props);
 
     this.state={
-      username:'', 
+      reg_no:'', 
       password:''
     }
 
-    this.handleUsernameChange=this.handleUsernameChange.bind(this);
+    this.handleRegChange=this.handleRegChange.bind(this);
     this.handlePasswordChange=this.handlePasswordChange.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
   }
@@ -27,9 +27,9 @@ class App extends React.Component{
   //   })
   // }
 
-  handleUsernameChange=event=>{
+  handleRegChange=event=>{
     this.setState({
-      username:event.target.value
+      reg_no:event.target.value
     })
   }
 
@@ -44,12 +44,12 @@ class App extends React.Component{
     e.preventDefault();
 
     const userDetails={
-      username:this.state.username,
+      reg_no:this.state.reg_no,
       password:this.state.password
     }
 
     this.setState({
-      username:'',
+      reg_no:'',
       password:''
     })
     
@@ -79,9 +79,9 @@ class App extends React.Component{
             <div className='login-details'>
               <form onSubmit={this.handleSubmit}>
                 <label>
-                  Username
+                  Registration Number
                 </label>
-                <input type="text" placeholder='Enter your username' value={this.state.username} onChange={this.handleUsernameChange}>
+                <input type="text" placeholder='Enter your reg. number' value={this.state.reg_no} onChange={this.handleRegChange}>
                 </input>
 
                 <br></br>

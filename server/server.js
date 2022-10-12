@@ -29,14 +29,14 @@ db_conn.connect(err=>{
 });
 
 // // to be replaced by actual data from the database;
-// const username='Wes';
+// const reg_no='Wes';
 
 // const password="Okemwa";
 
 app.post("/server/intro", (req, res)=>{
     // let userDetails=req.body;
     let user_data={
-        username:req.body.username,
+        reg_no:req.body.reg_no,
         password:req.body.password
     }
 

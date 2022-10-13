@@ -1,6 +1,7 @@
 const express=require('express');
 const cors=require('cors');
 const mysql=require('mysql');
+const bcrypt=require('bcrypt');
 
 const app=express();
 
@@ -34,25 +35,39 @@ db_conn.connect(err=>{
 // const password="Okemwa";
 
 app.post("/server/intro", (req, res)=>{
-    // let userDetails=req.body;
-    let user_data={
-        reg_no:req.body.reg_no,
-        password:req.body.password
-    }
 
-    // insert the details into the database
-    let insert_sql="INSERT INTO students SET ?";
+    bcrypt.genSalt(10, (err, salt)=>{
 
-    let query=db_conn.query(insert_sql, user_data, (err, result)=>{
-
-        if(err){
+        if (err){
             throw err
         }
+        
 
-        console.log(`Check out the result object: ${result}`)
-    })
+        bcrypt.hash(req.body.password, salt, (err, hash)=>{
 
-})
+            if(err){
+                throw err
+            }
+
+            let login_info={
+                reg_no:req.body.reg_no,
+                password:hash
+            }
+
+            let insert_sql="INSERT INTO students SET ?";
+
+            db_conn.query(insert_sql, login_info, (err, result)=>{
+
+                if(err){
+
+                    throw err
+                }
+
+                console.log(result);
+            })
+        })
+    });
+});
 
 app.get("/server/intro", (req, res)=>{
     const status=res.status(200);

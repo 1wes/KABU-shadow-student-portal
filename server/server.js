@@ -2,10 +2,12 @@ const express=require('express');
 const cors=require('cors');
 const mysql=require('mysql');
 const bcrypt=require('bcrypt');
+// reading the environment varibales file
+require('dotenv').config();
 
 const app=express();
 
-const port=5000;
+const port=process.env.PORT;
 
 // use json to parse the incoming requests
 app.use(express.json());
@@ -14,11 +16,11 @@ app.use(cors());
 
 // create a connection to the databse
 const db_conn=mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'root',
-    database:'KABU_shadow_portal'
-});
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database:process.env.DB_NAME
+})
 
 // make the connection
 db_conn.connect(err=>{
@@ -29,10 +31,7 @@ db_conn.connect(err=>{
     console.log("Mysql has successfully connected....");
 });
 
-// // to be replaced by actual data from the database;
-// const reg_no='Wes';
 
-// const password="Okemwa";
 
 app.post("/server/intro", (req, res)=>{
 

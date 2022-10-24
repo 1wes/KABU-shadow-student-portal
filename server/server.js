@@ -2,12 +2,9 @@ const express=require('express');
 const cors=require('cors');
 const mysql=require('mysql');
 const bcrypt=require('bcrypt');
-// reading the environment varibales file
-require('dotenv').config();
-
+const {port, host, user, password, database}= require('./env-config');
 const app=express();
 
-const port=process.env.PORT;
 
 // use json to parse the incoming requests
 app.use(express.json());
@@ -16,11 +13,11 @@ app.use(cors());
 
 // create a connection to the databse
 const db_conn=mysql.createConnection({
-    host:process.env.DB_HOST,
-    user:process.env.DB_USER,
-    password:process.env.DB_PASSWORD,
-    database:process.env.DB_NAME
-})
+    host:host,
+    user:user,
+    password:password,
+    database:database
+});
 
 // make the connection
 db_conn.connect(err=>{
@@ -33,40 +30,40 @@ db_conn.connect(err=>{
 
 
 
-app.post("/server/intro", (req, res)=>{
+// app.post("/server/intro", (req, res)=>{
 
-    bcrypt.genSalt(10, (err, salt)=>{
+//     bcrypt.genSalt(10, (err, salt)=>{
 
-        if (err){
-            throw err
-        }
+//         if (err){
+//             throw err
+//         }
         
 
-        bcrypt.hash(req.body.password, salt, (err, hash)=>{
+//         bcrypt.hash(req.body.password, salt, (err, hash)=>{
 
-            if(err){
-                throw err
-            }
+//             if(err){
+//                 throw err
+//             }
 
-            let login_info={
-                reg_no:req.body.reg_no,
-                password:hash
-            }
+//             let login_info={
+//                 reg_no:req.body.reg_no,
+//                 password:hash
+//             }
 
-            let insert_sql="INSERT INTO students SET ?";
+//             let insert_sql="INSERT INTO students SET ?";
 
-            db_conn.query(insert_sql, login_info, (err, result)=>{
+//             db_conn.query(insert_sql, login_info, (err, result)=>{
 
-                if(err){
+//                 if(err){
 
-                    throw err
-                }
+//                     throw err
+//                 }
 
-                console.log(result);
-            })
-        })
-    });
-});
+//                 console.log(result);
+//             })
+//         })
+//     });
+// });
 
 app.get("/server/intro", (req, res)=>{
     const status=res.status(200);

@@ -54,7 +54,9 @@ class App extends React.Component{
     })
     
     // post the data to the backend
-    axios.post("/server/intro", userDetails).then(res=>{
+    axios.post("/server/login", userDetails).then(res=>{
+
+      // take action after login
       alert(res.data);
     }).catch(err=>{
       console.log(err)
@@ -81,7 +83,7 @@ class App extends React.Component{
                 <label>
                   Registration Number
                 </label>
-                <input type="text" placeholder='Enter your reg. number' value={this.state.reg_no} onChange={this.handleRegChange}>
+                <input type="text" placeholder='Enter your reg. number' value={this.state.reg_no} onChange={this.handleRegChange} required>
                 </input>
 
                 <br></br>
@@ -89,7 +91,7 @@ class App extends React.Component{
                 <label>
                   Password
                 </label>
-                <input type="password" placeholder='Enter your password' value={this.state.password} onChange={this.handlePasswordChange}>
+                <input type="password" placeholder='Enter your password' value={this.state.password} onChange={this.handlePasswordChange} required>
                 </input>
 
                 <p className="forgot-password">

@@ -54,7 +54,7 @@ class App extends React.Component{
     })
     
     // post the data to the backend
-    axios.post("/server/login", userDetails).then(res=>{
+    axios.post("/student/login", userDetails).then(res=>{
 
       // take action after login
       alert(res.data);

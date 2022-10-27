@@ -1,7 +1,7 @@
 const express=require('express');
 const {port}= require('./env-config');
 const app=express();
-const login=require('./route');
+const login=require('./login');
 
 app.use("/server/login", login);
 

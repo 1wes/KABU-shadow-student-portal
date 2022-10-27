@@ -1,9 +1,9 @@
 const express=require('express');
 const {port}= require('./env-config');
 const app=express();
-const login=require('./login');
+const student=require('./login');
 
-app.use("/server/login", login);
+app.use("/student", student);
 
 app.listen(port, ()=>{
     console.log(`The server is listening at port ${port}`);

@@ -1,17 +1,10 @@
 const express=require('express');
 const app=express();
 const router=express.Router();
-const {db_conn}=require('./database');
+const con=require('./database.js');
 const bcrypt=require('bcrypt');
-const cors=require('cors');
 
-
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(cors());
-
-// route to handle login
-router.post("/", (req, res)=>{
+router.post("/login", (req, res)=>{
 
     let reg_no=req.body.reg_no;
 
@@ -19,7 +12,7 @@ router.post("/", (req, res)=>{
 
     let sql_select=`SELECT * from students WHERE reg_no='${reg_no}'`;
 
-    db_conn.query(sql_select, (err, result)=>{
+    con.query(sql_select, (err, result)=>{
 
         if (err){
 

@@ -9,14 +9,4 @@ const db_conn=mysql.createConnection({
     database:database
 });
 
-// make the connection
-db_conn.connect(err=>{
-    if (err){
-        throw err
-    }
-
-    console.log("Mysql has successfully connected....");
-});
-
-
 module.exports=db_conn;

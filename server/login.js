@@ -5,9 +5,7 @@ const bcrypt=require('bcrypt');
 
 router.post("/login", (req, res)=>{
 
-    let reg_no=req.body.reg_no;
-
-    let password=req.body.password;
+    let {reg_no, password}=req.body;
 
     let sql_select=`SELECT * from students WHERE reg_no='${reg_no}'`;
 

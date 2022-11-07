@@ -57,7 +57,7 @@ class App extends React.Component{
     axios.post("/student/login", userDetails).then(res=>{
 
       // take action after login
-      alert(res.data);
+      alert(JSON.stringify(res.data.success));
     }).catch(err=>{
       console.log(err)
 

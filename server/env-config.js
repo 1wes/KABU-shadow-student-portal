@@ -24,5 +24,6 @@ module.exports={
     user:process.env.DB_USER,
     password:process.env.DB_PASSWORD,
     database:process.env.DB_NAME,
-    node_env:process.env.NODE_ENV
+    node_env:process.env.NODE_ENV,
+    token_secret_key:process.env.TOKEN_SECRET_KEY
 }

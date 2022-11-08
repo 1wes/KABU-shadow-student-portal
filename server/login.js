@@ -1,8 +1,8 @@
 const express=require('express');
 const router=express.Router();
 const con=require('./database.js');
-const bcrypt=require('bcrypt');
 const comparePassword=require('./utils/passwordMatch');
+const generateToken=require('./web-tokens/generateToken');
 
 router.post("/login", (req, res)=>{
 
@@ -21,11 +21,21 @@ router.post("/login", (req, res)=>{
 
         if(!passwordMatch || result.length==0){
             
-            res.send({success:false})
+            return res.status(401).json({
+                success:false
+            })
         }
 
         // if the user exists and password checks out
-        
+        let token=generateToken({reg_no:result[0].reg_no});
+
+        return res.status(201).json({
+            success:true,
+            data:{
+                token:token,
+                reg_no:result[0].reg_no
+            }
+        })
     });
 
 });

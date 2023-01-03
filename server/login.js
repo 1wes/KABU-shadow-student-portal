@@ -31,7 +31,7 @@ router.post("/login", (req, res)=>{
 
         return res.status(201).json({
             success:true,
-            data:{
+            responseData:{
                 token:token,
                 reg_no:result[0].reg_no
             }

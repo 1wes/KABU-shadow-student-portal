@@ -56,12 +56,16 @@ class App extends React.Component{
     // post the data to the backend
     axios.post("/student/login", userDetails).then(res=>{
 
-      let userToken={
-        token:res.data.responseData.token
+      const headers={
+        headers:{
+          'auth_token':res.data.responseData.token
+        }
       }
 
-      axios.post("/student/auth", userToken).then(res=>{
+      axios.post("/student/auth",'',headers).then(res=>{
+
         alert(JSON.stringify(res.data));
+        
       });
 
     }).catch(err=>{

@@ -5,28 +5,25 @@ const token_secret_key=require('../env-config');
 
 router.post("/auth", (req, res)=>{
 
-    // let token=req.headers['token'];
+    const token=req.headers['auth_token'];
 
-    // console.log(token);
-    console.log(req.headers['token']);
-    // console.log(req.body)
 
-    // if(token){
+    if(token){
 
-    //     const decoded=jwt.verify(token, JSON.stringify(token_secret_key));
+        console.log(token);
 
-    //     console.log(decoded);
-    // }else{
-    //     console.log("Provide a token")
-    // }
+        const validToken=jwt.verify(token, JSON.stringify(token_secret_key));
 
-    // console.log(token);
+        if(validToken){
+            console.log("Login validated");
+        }else{
+            console.log("Invalid token")
+        }
 
-    // const secret_key=JSON.stringify(token_secret_key);
+    }else{
+        console.log("Please provide a token")
+    }
 
-    // let decoded=jwt.verify(token, secret_key);
-
-    // console.log(decoded);
 
 })
 

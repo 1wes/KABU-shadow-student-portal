@@ -7,7 +7,6 @@ router.post("/auth", (req, res)=>{
 
     const token=req.headers['auth_token'];
 
-
     if(token){
 
         console.log(token);
@@ -15,13 +14,13 @@ router.post("/auth", (req, res)=>{
         const validToken=jwt.verify(token, JSON.stringify(token_secret_key));
 
         if(validToken){
-            console.log("Login validated");
+            res.status(200).send("Login validated");
         }else{
-            console.log("Invalid token")
+            res.status(401).send("Unauthorized token")
         }
 
     }else{
-        console.log("Please provide a token")
+        res.status(403).send("Please provide a token");
     }
 
 

@@ -14,11 +14,11 @@ router.post("/auth", (req, res)=>{
         if(validToken){
             res.status(200).send("Login validated");
         }else{
-            res.status(401).send("Unauthorized token")
+            res.status(401).send("Unauthorized token");
         }
 
     }else{
-        res.status(403).send("Please provide a token");
+        res.status(403).send("Forbidden");
     }
 
 

@@ -9,8 +9,6 @@ router.post("/auth", (req, res)=>{
     
     if(token){
 
-        console.log(token);
-
         const validToken=jwt.verify(token, token_secret_key);
 
         if(validToken){

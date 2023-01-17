@@ -21,9 +21,7 @@ router.post("/login", (req, res)=>{
 
         if(!passwordMatch || result.length==0){
             
-            return res.status(401).json({
-                success:false
-            })
+            return res.status(401).send("Unauthorized")
         }
 
         // if the user exists and password checks out

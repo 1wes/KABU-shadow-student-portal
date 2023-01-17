@@ -56,23 +56,25 @@ class App extends React.Component{
     // post the data to the backend
     axios.post("/student/login", userDetails).then(res=>{
 
-      const headersConfig={
-        headers:{
-          'auth_token':res.data.responseData.token
+      if(res.status===201){
+
+        const headersConfig={
+          headers:{
+            'auth_token':res.data.responseData.token
+          }
         }
+
+        axios.post("/student/auth", '', headersConfig).then(res=>{
+          alert(JSON.stringify(res.status));
+        }).catch(err=>{
+          alert(err.response.status);
+        })
+
       }
 
-      axios.post("/student/auth",'',headersConfig).then(res=>{
-
-        alert(JSON.stringify(res.data));
-        
-      });
-
     }).catch(err=>{
-      console.log(err)
-
+      alert(err.response.status)
       // clear the state after submitting the details
-
     });
   }
 

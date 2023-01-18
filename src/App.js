@@ -17,6 +17,7 @@ class App extends React.Component{
     this.handleRegChange=this.handleRegChange.bind(this);
     this.handlePasswordChange=this.handlePasswordChange.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
+    this.togglePasswordVisibility=this.togglePasswordVisibility.bind(this);
   }
 
   // handleFetch=()=>{
@@ -78,6 +79,15 @@ class App extends React.Component{
     });
   }
 
+  togglePasswordVisibility=(e)=>{
+    let passwordField=document.getElementById('show-password');
+
+    const type=passwordField.getAttribute('type')==='password'? 'text':'password'
+
+    passwordField.setAttribute('type', type);
+
+  }
+
   render(){
 
     return(
@@ -103,7 +113,7 @@ class App extends React.Component{
                 <label>
                   Password
                 </label>
-                <input type="password" placeholder='Enter your password' value={this.state.password} onChange={this.handlePasswordChange} required>
+                <input type="password"  id='show-password' placeholder='Enter your password' value={this.state.password} onChange={this.handlePasswordChange} required>
                 </input>
 
                 <div className='password-visibility'>

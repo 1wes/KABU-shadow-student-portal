@@ -106,6 +106,11 @@ class App extends React.Component{
                 <input type="password" placeholder='Enter your password' value={this.state.password} onChange={this.handlePasswordChange} required>
                 </input>
 
+                <div className='password-visibility'>
+                  <input type="checkbox" onClick={this.togglePasswordVisibility}></input>
+                  <label>Show password</label>
+                </div>
+
                 <p className="forgot-password">
                   Forgot password?
                 </p>

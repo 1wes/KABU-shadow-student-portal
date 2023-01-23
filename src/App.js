@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import axios from './baseUrl';
 import logo from './kabulogo-removebg-preview.png'
+import {Link} from 'react-router-dom';
 
 class App extends React.Component{
 
@@ -122,7 +123,7 @@ class App extends React.Component{
                 </div>
 
                 <p className="forgot-password">
-                  Forgot password?
+                  <Link to='/student/login/forgotPassword' id='forgot-password-link'>Forgot password?</Link>
                 </p>
 
                 <div className='submit-button'>

@@ -81,11 +81,23 @@ input::placeholder{
   font-size: 12px;
 }
 
+/* input[type='password']:not(:placeholder-shown){
+  font-family: verdana;
+} */
+
 .forgot-password{
   font-size: 10px;
   color: white;
-  cursor: pointer;
   text-decoration: underline;
+}
+
+#forgot-password-link{
+  color: white;
+  cursor: pointer;
+}
+
+.forgot-password Link{
+  color: white;
 }
 
 

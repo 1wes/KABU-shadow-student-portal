@@ -21,14 +21,6 @@ class App extends React.Component{
     this.togglePasswordVisibility=this.togglePasswordVisibility.bind(this);
   }
 
-  // handleFetch=()=>{
-  //   axios.get('/server/intro').then(response=>{
-  //     this.setState({
-  //       backendData:response.data
-  //     })
-  //   })
-  // }
-
   handleRegChange=event=>{
     this.setState({
       reg_no:event.target.value

@@ -1,6 +1,5 @@
 import React from 'react';
 import './password-reset.css';
-import {logo} from '../kabulogo-removebg-preview.png';
 
 function Centeredsegment(props){
 
@@ -67,11 +66,11 @@ class Resetpassword extends React.Component{
                         <Logobanner>
                             <div className='kabarak-logo'>
                                 <div className='reset-page-logo'>
-                                    University logo
+                                    <img src={require('../kabulogo-removebg-preview.png')} alt='KABU-logo'/>
                                 </div>
 
                                 <div className='name'>
-                                    uUniversity name
+                                    University name
                                 </div>
                             </div>
                         </Logobanner>

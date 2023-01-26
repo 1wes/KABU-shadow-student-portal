@@ -66,7 +66,7 @@ class Resetpassword extends React.Component{
                     <Contentsegment>
                         <Logobanner>
                             <div className='kabarak-logo'>
-                                <div className='logo'>
+                                <div className='reset-page-logo'>
                                     University logo
                                 </div>
 

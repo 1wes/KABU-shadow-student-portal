@@ -121,4 +121,12 @@ class Resetpassword extends React.Component{
     }
 }
 
+
+export{
+    Centeredsegment,
+    Contentsegment,
+    Logobanner,
+    SubmitButton
+}
+
 export default Resetpassword;

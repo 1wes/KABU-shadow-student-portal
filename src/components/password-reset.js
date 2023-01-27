@@ -65,13 +65,7 @@ class Resetpassword extends React.Component{
                     <Contentsegment>
                         <Logobanner>
                             <div className='kabarak-logo'>
-                                <div className='reset-page-logo'>
-                                    <img src={require('../kabulogo-removebg-preview.png')} alt='KABU-logo'/>
-                                </div>
-
-                                <div className='name'>
-                                    University name
-                                </div>
+                                <img className='name' src={require('../kaba-name.png')} />
                             </div>
                         </Logobanner>
 

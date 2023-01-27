@@ -1,5 +1,6 @@
 import React from 'react';
 import './password-reset.css';
+import {Link} from 'react-router-dom';
 
 function Centeredsegment(props){
 
@@ -46,6 +47,44 @@ function Resetpasswordform(props){
     )
 }
 
+function SubmitButton(props){
+
+    return(
+        <React.Fragment>
+            <div className='submit-btn'>
+                <button className='reg-submit-btn' type='submit' value='Submit'>
+                    {props.text}
+                </button>
+            </div>
+        </React.Fragment>
+    )
+}
+
+function Resetform(props){
+
+    return(
+        <React.Fragment>
+            <form className='reset-form'> 
+                <label>
+                    Reg. Number
+                </label>
+                
+                <div className='reg-no'>
+                    <input type='text' placeholder='Reg. Number' >
+                    </input>
+                </div>
+
+                <SubmitButton text='Reset password' />
+
+                <div className='homepage-login'>
+                    <span><Link id='back-to-homepage' to="/">Login</Link></span>
+                </div>
+
+            </form>
+        </React.Fragment>
+    )
+}
+
 class Resetpassword extends React.Component{
 
     constructor(props){
@@ -72,7 +111,7 @@ class Resetpassword extends React.Component{
                         <hr />
 
                         <Resetpasswordform>
-                            Reg.no form
+                            <Resetform />
                         </Resetpasswordform>
                     </Contentsegment>
                 </Centeredsegment>

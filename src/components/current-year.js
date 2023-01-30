@@ -5,7 +5,6 @@ function Currentyear(){
 
     return date.getFullYear(); 
 
-
 }
 
 export default Currentyear;

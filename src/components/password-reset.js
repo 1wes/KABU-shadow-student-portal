@@ -1,6 +1,7 @@
 import React from 'react';
 import './password-reset.css';
 import {Link} from 'react-router-dom';
+import Footnote from './footnote'
 
 function Centeredsegment(props){
 
@@ -115,6 +116,8 @@ class Resetpassword extends React.Component{
                         </Resetpasswordform>
                     </Contentsegment>
                 </Centeredsegment>
+
+                <Footnote/>
             </div>
             </React.Fragment>
         )

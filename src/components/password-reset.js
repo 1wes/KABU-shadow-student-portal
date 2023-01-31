@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 import Footnote from './footnote';
 import Modal from './modal';
 
+let warningMessage="Enter Registration Number"
+
 function Centeredsegment(props){
 
     return(
@@ -119,7 +121,7 @@ class Resetpassword extends React.Component{
                 </Centeredsegment>
 
                 <Footnote/>
-                <Modal/>
+                <Modal message={warningMessage} />
             </div>
             </React.Fragment>
         )

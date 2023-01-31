@@ -1,0 +1,77 @@
+.modal-container{
+    display: block;
+}
+
+.modal{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning-modal{
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 auto !important;
+    width: 32%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contents div:not(last){
+    padding: 10px 0 10px 0;
+}
+
+.warning-icon{
+    font-size: 100px;
+    margin: 25px 0 0 0;
+    color: rgb(247,184,75);
+    font-weight: lighter;
+}
+
+.warning-header{
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    color: #595959;
+}
+
+.warning-message{
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", 
+    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 400;
+    font-size: 16px;
+    color: #545454;
+    margin-top: -9px;
+}
+
+.generic-close-button{
+    background-color: rgb(39,120,196);
+    width: 28%;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 13px;
+    transition: background-color .1s ease-in-out;
+    margin:15px 0 25px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.generic-close-button:hover{
+    opacity: 90%;
+}

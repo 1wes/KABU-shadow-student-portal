@@ -5,13 +5,31 @@ import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 class Modal extends React.Component{
 
+    constructor(props){
+
+        super(props);
+
+        this.hideModal=this.hideModal.bind(this);
+    }
+
+    hideModal=event=>{
+
+        let modalWrapper=document.getElementById('main-wrapper');
+
+        let modalContainer=document.getElementById('modal-container');
+
+        if(event.target==modalContainer){
+            modalWrapper.style.display='none'
+        }
+    }
+
     render(){
 
         return(
             <React.Fragment>
-                <div className='modal-container'>  
-                    <div className='modal'>
-                        <div className='warning-modal'>
+                <div className='modal-wrapper' id='main-wrapper' >  
+                    <div className='modal' id='modal-container' onClick={this.hideModal}>
+                        <div className='warning-modal' id='alert-modal'>
                             <div className='modal-contents'>
                                 <div className='warning-icon'>
                                     <FontAwesomeIcon icon={faCircleExclamation} />
@@ -22,7 +40,7 @@ class Modal extends React.Component{
                                 <div className='warning-message'>
                                     {this.props.message}
                                 </div>
-                                <button className='generic-close-button'>
+                                <button type='button ' className='generic-close-button'>
                                     ok
                                 </button>
                             </div>

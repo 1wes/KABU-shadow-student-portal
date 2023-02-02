@@ -9,7 +9,14 @@ class Modal extends React.Component{
 
         super(props);
 
+        this.hiedModal=this.hideModal.bind(this);
         this.closeModal=this.closeModal.bind(this);
+    }
+
+    hideModal=()=>{
+        let modalWrapper=document.getElementById('main-wrapper');
+
+        modalWrapper.style.display='none';
     }
 
     closeModal=event=>{
@@ -40,7 +47,7 @@ class Modal extends React.Component{
                                 <div className='warning-message'>
                                     {this.props.message}
                                 </div>
-                                <button type='button ' className='generic-close-button'>
+                                <button type='button ' className='generic-close-button' onClick={this.hideModal}>
                                     ok
                                 </button>
                             </div>

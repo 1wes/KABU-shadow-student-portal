@@ -9,10 +9,10 @@ class Modal extends React.Component{
 
         super(props);
 
-        this.hideModal=this.hideModal.bind(this);
+        this.closeModal=this.closeModal.bind(this);
     }
 
-    hideModal=event=>{
+    closeModal=event=>{
 
         let modalWrapper=document.getElementById('main-wrapper');
 
@@ -28,7 +28,7 @@ class Modal extends React.Component{
         return(
             <React.Fragment>
                 <div className='modal-wrapper' id='main-wrapper' >  
-                    <div className='modal' id='modal-container' onClick={this.hideModal}>
+                    <div className='modal' id='modal-container' onClick={this.closeModal}>
                         <div className='warning-modal' id='alert-modal'>
                             <div className='modal-contents'>
                                 <div className='warning-icon'>

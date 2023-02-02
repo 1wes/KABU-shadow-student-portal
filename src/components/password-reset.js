@@ -51,17 +51,31 @@ function Resetpasswordform(props){
     )
 }
 
-function SubmitButton(props){
+class SubmitButton extends React.Component{
 
-    return(
-        <React.Fragment>
-            <div className='submit-btn'>
-                <button className='reg-submit-btn' type='submit' value='Submit'>
-                    {props.text}
-                </button>
-            </div>
-        </React.Fragment>
-    )
+    constructor(props){
+        super(props);
+
+        this.validateForm=this.validateForm.bind(this);
+    }
+
+    validateForm=e=>{
+        e.preventDefault();
+
+    }
+
+    render(){
+
+        return(
+            <React.Fragment>
+                <div className='submit-btn'>
+                    <button className='reg-submit-btn' type='submit' value='Submit' onClick={this.validateForm}>
+                        {this.props.text}
+                    </button>
+                </div>
+            </React.Fragment>
+        )
+    }
 }
 
 function Resetform(props){

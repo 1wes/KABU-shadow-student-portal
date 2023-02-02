@@ -62,6 +62,7 @@ class SubmitButton extends React.Component{
     validateForm=e=>{
         e.preventDefault();
 
+
     }
 
     render(){
@@ -78,29 +79,33 @@ class SubmitButton extends React.Component{
     }
 }
 
-function Resetform(props){
+class Resetform extends React.Component{
 
-    return(
-        <React.Fragment>
-            <form className='reset-form'> 
-                <label>
-                    Reg. Number
-                </label>
+    render(){
+
+
+        return(
+            <React.Fragment>
+                <form className='reset-form'> 
+                    <label>
+                        Reg. Number
+                    </label>
                 
-                <div className='reg-no'>
-                    <input type='text' placeholder='Reg. Number' >
-                    </input>
-                </div>
+                    <div className='reg-no'>
+                        <input type='text' placeholder='Reg. Number' value={props.value} onChange={handleRegResetChange}>
+                        </input>
+                    </div>
 
-                <SubmitButton text='Reset password' />
+                    <SubmitButton text='Reset password' />
 
-                <div className='homepage-login'>
-                    <span><Link id='back-to-homepage' to="/">Login</Link></span>
-                </div>
+                    <div className='homepage-login'>
+                        <span><Link id='back-to-homepage' to="/">Login</Link></span>
+                    </div>
+                </form>
+            </React.Fragment>
+        )
+    }
 
-            </form>
-        </React.Fragment>
-    )
 }
 
 class Resetpassword extends React.Component{
@@ -109,7 +114,7 @@ class Resetpassword extends React.Component{
         super(props);
 
         this.state={
-            
+            reset_reg_no:''
         }
     }
 
@@ -129,7 +134,7 @@ class Resetpassword extends React.Component{
                         <hr />
 
                         <Resetpasswordform>
-                            <Resetform />
+                            <Resetform value={this.state.reset_reg_no} />
                         </Resetpasswordform>
                     </Contentsegment>
                 </Centeredsegment>

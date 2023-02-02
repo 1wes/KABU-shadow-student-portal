@@ -9,7 +9,7 @@ class Modal extends React.Component{
 
         super(props);
 
-        this.hiedModal=this.hideModal.bind(this);
+        this.hideModal=this.hideModal.bind(this);
         this.closeModal=this.closeModal.bind(this);
     }
 

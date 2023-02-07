@@ -102,7 +102,7 @@ class Resetform extends React.Component{
                     </label>
                 
                     <div className='reg-no'>
-                        <input type='text' placeholder='Reg. Number' onChange={this.handleRegChange}>
+                        <input type='text' placeholder='Reg. Number' value={this.props.reg_no} onChange={this.handleRegChange}>
                         </input>
                     </div>
 

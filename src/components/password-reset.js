@@ -81,6 +81,16 @@ class SubmitButton extends React.Component{
 
 class Resetform extends React.Component{
 
+    constructor(props){
+        super(props);
+
+    this.handleRegChange=this.handleRegChange.bind(this);
+    }
+
+    handleRegChange=event=>{
+        this.props.handleRegChange(event.target.value)
+    }
+
     render(){
 
 
@@ -92,11 +102,11 @@ class Resetform extends React.Component{
                     </label>
                 
                     <div className='reg-no'>
-                        <input type='text' placeholder='Reg. Number' value={props.value} onChange={handleRegResetChange}>
+                        <input type='text' placeholder='Reg. Number' onChange={this.handleRegChange}>
                         </input>
                     </div>
 
-                    <SubmitButton text='Reset password' />
+                    <SubmitButton text='Reset password'/>
 
                     <div className='homepage-login'>
                         <span><Link id='back-to-homepage' to="/">Login</Link></span>
@@ -116,6 +126,7 @@ class Resetpassword extends React.Component{
         this.state={
             reset_reg_no:''
         }
+
     }
 
     render(){

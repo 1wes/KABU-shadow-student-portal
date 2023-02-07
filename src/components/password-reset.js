@@ -60,9 +60,7 @@ class SubmitButton extends React.Component{
     }
 
     validateForm=e=>{
-        e.preventDefault();
-
-
+        this.props.validateForm(e);
     }
 
     render(){
@@ -84,7 +82,7 @@ class Resetform extends React.Component{
     constructor(props){
         super(props);
 
-    this.handleRegChange=this.handleRegChange.bind(this);
+        this.handleRegChange=this.handleRegChange.bind(this);
     }
 
     handleRegChange=event=>{

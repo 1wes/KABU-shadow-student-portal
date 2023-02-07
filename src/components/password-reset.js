@@ -143,11 +143,10 @@ class Resetpassword extends React.Component{
 
         let reg=this.state.reg_no
 
-        console.log(reg)
 
         if(reg===''){
             this.setState({
-                valid:true
+                valid:!false
             });
         }
     }
@@ -155,10 +154,14 @@ class Resetpassword extends React.Component{
     submitForm=e=>{
         e.preventDefault();
 
-        // alert(this.state.reg_no+''+"\n"+this.state.valid)
-        console.log(this.state.valid)
+        let validity=this.state.valid;
 
+        validity==true?alert(true):
+        alert(false)
 
+        this.setState({
+            valid:!this.state.valid
+        });
     }
 
     render(){

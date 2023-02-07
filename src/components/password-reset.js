@@ -56,11 +56,11 @@ class SubmitButton extends React.Component{
     constructor(props){
         super(props);
 
-        this.validateForm=this.validateForm.bind(this);
+        this.submitForm=this.submitForm.bind(this);
     }
 
-    validateForm=e=>{
-        this.props.validateForm(e);
+    submitForm=(e)=>{
+        this.props.submitForm(e);
     }
 
     render(){
@@ -68,7 +68,7 @@ class SubmitButton extends React.Component{
         return(
             <React.Fragment>
                 <div className='submit-btn'>
-                    <button className='reg-submit-btn' type='submit' value='Submit' onClick={this.validateForm}>
+                    <button className='reg-submit-btn' type='submit' value='Submit' onClick={this.submitForm}>
                         {this.props.text}
                     </button>
                 </div>
@@ -83,10 +83,15 @@ class Resetform extends React.Component{
         super(props);
 
         this.handleRegChange=this.handleRegChange.bind(this);
+        this.submitForm=this.submitForm.bind(this)
     }
 
     handleRegChange=event=>{
         this.props.handleRegChange(event.target.value)
+    }
+
+    submitForm=(e)=>{
+        this.props.submitForm(e)
     }
 
     render(){
@@ -104,7 +109,7 @@ class Resetform extends React.Component{
                         </input>
                     </div>
 
-                    <SubmitButton text='Reset password'/>
+                    <SubmitButton text='Reset password' submitForm={this.submitForm}/>
 
                     <div className='homepage-login'>
                         <span><Link id='back-to-homepage' to="/">Login</Link></span>
@@ -122,8 +127,37 @@ class Resetpassword extends React.Component{
         super(props);
 
         this.state={
-            reset_reg_no:''
+            reg_no:'',
+            valid:false
         }
+
+        this.handleRegChange=this.handleRegChange.bind(this);
+        this.submitForm=this.submitForm.bind(this);
+    }
+
+    handleRegChange=new_reg_no=>{
+        
+        this.setState({
+            reg_no:new_reg_no
+        });
+
+        let reg=this.state.reg_no
+
+        console.log(reg)
+
+        if(reg===''){
+            this.setState({
+                valid:true
+            });
+        }
+    }
+
+    submitForm=e=>{
+        e.preventDefault();
+
+        // alert(this.state.reg_no+''+"\n"+this.state.valid)
+        console.log(this.state.valid)
+
 
     }
 
@@ -143,7 +177,7 @@ class Resetpassword extends React.Component{
                         <hr />
 
                         <Resetpasswordform>
-                            <Resetform value={this.state.reset_reg_no} />
+                            <Resetform handleRegChange={this.handleRegChange} submitForm={this.submitForm}/>
                         </Resetpasswordform>
                     </Contentsegment>
                 </Centeredsegment>

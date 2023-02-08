@@ -170,24 +170,28 @@ class App extends React.Component{
     return(
 
       <React.Fragment>
-        <Centeredsegment>
-          <Contentsegment>
-            <Logobanner/>
-            <hr/>
 
-            <Login>
-              <Loginform/>
-            </Login>
+        <div id='main-container'>
+          <Centeredsegment>
+            <Contentsegment>
+              <Logobanner/>
+              <hr/>
 
-            <div className='sub-btn-div'>
-              <SubmitButton text={text} />
-            </div>
+              <Login>
+                <Loginform/>
+              </Login>
 
-            <Forgotpasswordlink/>
+              <div className='sub-btn-div'>
+                <SubmitButton text={text} />
+              </div>
 
-          </Contentsegment>
-        </Centeredsegment>
-        <Footnote/>
+              <Forgotpasswordlink/>
+
+            </Contentsegment>
+          </Centeredsegment>
+          <Footnote/>
+        </div>
+        
       </React.Fragment>
       // <div className='login'>
       //   <div className='login-form'> 

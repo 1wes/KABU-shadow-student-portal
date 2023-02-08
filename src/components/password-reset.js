@@ -195,7 +195,8 @@ export{
     Centeredsegment,
     Contentsegment,
     Logobanner,
-    SubmitButton
+    SubmitButton,
+    Footnote
 }
 
 export default Resetpassword;

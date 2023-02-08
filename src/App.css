@@ -1,12 +1,87 @@
 
 body{
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   background-color: whitesmoke;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", 
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-h3{
+.login-form{
+  padding: 20px 0 0 0;
+  width: 100%;
+  max-width: 100;
+}
+
+.login-form label{
+  font-weight: bold;
+  font-size:15px;
+  margin-bottom:10em;
+}
+
+.login-form input{
+  border: none;
+  text-transform: uppercase;
+  border: none;
+  padding: 11px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 0 15px 0;
+  color: #6c757d;
+}
+
+.login-form input::placeholder{
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: rgba(128, 128, 128, 0.705);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, 
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.remember-me{
+  display: flex;
+  flex-direction: row;
+  /* width: 100%; */
+  /* text-align: left; */
+  justify-content: flex-start;
+  margin-bottom:0 !important ;
+  padding-bottom: 0 !important;
+}
+
+.remember-me input{
+  width: 15px;
+  margin:0 10px 0 0;
+  border-radius: 50px;
+  border: none;
+}
+
+input[type=checkbox]{
+  accent-color: rgb(59,175,218);
+}
+
+.remember-me span{
+  margin: -4px 0 0 -2px;
+}
+
+.sub-btn-div{
+  margin: 38px 0 0 0;
+}
+
+#forgot-password-link{
+  text-decoration: none;
+    color: rgb(59,135,53)
+}
+
+.password-reset-link{
+  margin: -1px 0 0 0;
+}
+
+/* h3{
   text-align: center;
 }
 
@@ -84,7 +159,7 @@ input::placeholder{
 /* input[type='password']:not(:placeholder-shown){
   font-family: verdana;
 } */
-
+/* 
 .forgot-password{
   font-size: 10px;
   color: white;
@@ -129,11 +204,11 @@ button{
 
 button:hover{
   cursor: pointer;
-}
+} */ 
 
-@media only screen and (max-width:760px){
+/* @media only screen and (max-width:760px){ */
 
-  .login{
+  /* .login{
     height: 100vh;
     margin: 0 auto !important;
     width: 100%;
@@ -145,15 +220,15 @@ button:hover{
   .login-form{
     width: 80%;
     /* background-color: red; */
-  }
+  /* } */
 
-  .login-details{
+  /* .login-details{
     border-radius: 10px;
     width: 100%;
     /* background-color: yellow; */
-  }
+  /* } */
 
-  .logo{
+  /* .logo{
     display: flex;
     justify-content: center;
   }
@@ -162,13 +237,13 @@ button:hover{
     height: auto;
     width: 100%;
     max-width: 50%;
-  }
+  } */
 
-  form{
+  /* form{
     max-width:100%;
-  }
+  } */
 
-  input{
+  /* input{
     display: block;
     padding: 15px;
     width: 93%;
@@ -183,9 +258,9 @@ button:hover{
 
   input::placeholder{
     font-size: 16px;
-  }
+  }  */
   
-  button{
+  /* button{
     font-size: 20px;
   }
 
@@ -199,6 +274,4 @@ button:hover{
 
   h3{
     font-size: 22px;
-  }
-
-}
+  }  */

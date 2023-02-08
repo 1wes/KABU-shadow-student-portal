@@ -1,8 +1,12 @@
 
-body{
+#main-container{
+  background-image: url("./kaba-backround-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: whitesmoke;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", 

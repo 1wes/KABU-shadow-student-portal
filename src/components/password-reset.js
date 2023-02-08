@@ -29,12 +29,14 @@ function Contentsegment(props){
     )
 }
 
-function Logobanner(props){
+function Logobanner(){
 
     return(
         <React.Fragment>
             <div className='logo-banner'>
-                {props.children}
+                <div className='kabarak-logo'>
+                    <img className='name' src={require('../kaba-name.png')} alt='kabarak-university-logo-&-name' />
+                </div>
             </div>
         </React.Fragment>
     )
@@ -171,12 +173,7 @@ class Resetpassword extends React.Component{
             <div className='password-reset'>
                 <Centeredsegment>
                     <Contentsegment>
-                        <Logobanner>
-                            <div className='kabarak-logo'>
-                                <img className='name' src={require('../kaba-name.png')} alt='kabarak-university-logo-&-name' />
-                            </div>
-                        </Logobanner>
-
+                        <Logobanner/>
                         <hr />
 
                         <Resetpasswordform>

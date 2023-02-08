@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react';
 import axios from './baseUrl';
 import {Link} from 'react-router-dom';
-import {Centeredsegment, Contentsegment, Logobanner, SubmitButton} from './components/password-reset';
+import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './components/password-reset';
 
 function Login(props){
 
@@ -187,6 +187,7 @@ class App extends React.Component{
 
           </Contentsegment>
         </Centeredsegment>
+        <Footnote/>
       </React.Fragment>
       // <div className='login'>
       //   <div className='login-form'> 

@@ -158,7 +158,7 @@ class Resetpassword extends React.Component{
 
         let validity=this.state.valid;
 
-        validity==true?alert(true):
+        validity===true?alert(true):
         alert(false)
 
         this.setState({

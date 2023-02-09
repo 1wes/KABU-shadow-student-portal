@@ -25,7 +25,7 @@ class Modal extends React.Component{
 
         let modalContainer=document.getElementById('modal-container');
 
-        if(event.target==modalContainer){
+        if(event.target===modalContainer){
             modalWrapper.style.display='none'
         }
     }

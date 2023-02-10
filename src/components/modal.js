@@ -9,18 +9,14 @@ class Modal extends React.Component{
 
         super(props);
 
-        this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
-        this.closeOnClickingButton=this.closeOnClickingButton.bind(this);
-        this.modalContainer=React.createRef();
+        this.state={
+            isOpen:false
+        }
+
+        this.closeOnClickingOutsidemodal=this.closeOnClickingOutsidemodal.bind(this);
+        this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
         this.closeButton=React.createRef();
-    }
-
-    closeOnClickingOutsideModal=()=>{
-        this.props.closeOnClickingOutsideModal
-    }
-
-    closeOnClickingButton=(event)=>{
-        this.props.closeOnClickingButton(event);
+        this.modalContainer=React.createRef();
     }
 
     render(){
@@ -28,7 +24,7 @@ class Modal extends React.Component{
         return(
             <React.Fragment>
                 <div className='modal-wrapper' id='main-wrapper' >  
-                    <div className='modal' id='modal-container' ref={this.modalContainer} onClick={this.closeOnClickingOutsideModal}>
+                    <div className='modal' id='modal-container' ref={this.modalContainer} onClick={this.closeOnClickingOutsidemodal}>
                         <div className='warning-modal' id='alert-modal'>
                             <div className='modal-contents'>
                                 <div className='warning-icon'>
@@ -40,7 +36,7 @@ class Modal extends React.Component{
                                 <div className='warning-message'>
                                     {this.props.message}
                                 </div>
-                                <button type='button ' className='generic-close-button' ref={this.closeButton} onClick={this.closeOnClickingButton}>
+                                <button type='button ' className='generic-close-button' ref={this.closeButton} onClick={this.closeOnClickingOnButton}>
                                     ok
                                 </button>
                             </div>

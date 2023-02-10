@@ -9,25 +9,18 @@ class Modal extends React.Component{
 
         super(props);
 
-        this.hideModal=this.hideModal.bind(this);
-        this.closeModal=this.closeModal.bind(this);
+        this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
+        this.closeOnClickingButton=this.closeOnClickingButton.bind(this);
+        this.modalContainer=React.createRef();
+        this.closeButton=React.createRef();
     }
 
-    hideModal=()=>{
-        let modalWrapper=document.getElementById('main-wrapper');
-
-        modalWrapper.style.display='none';
+    closeOnClickingOutsideModal=()=>{
+        this.props.closeOnClickingOutsideModal
     }
 
-    closeModal=event=>{
-
-        let modalWrapper=document.getElementById('main-wrapper');
-
-        let modalContainer=document.getElementById('modal-container');
-
-        if(event.target===modalContainer){
-            modalWrapper.style.display='none'
-        }
+    closeOnClickingButton=(event)=>{
+        this.props.closeOnClickingButton(event);
     }
 
     render(){
@@ -35,7 +28,7 @@ class Modal extends React.Component{
         return(
             <React.Fragment>
                 <div className='modal-wrapper' id='main-wrapper' >  
-                    <div className='modal' id='modal-container' onClick={this.closeModal}>
+                    <div className='modal' id='modal-container' ref={this.modalContainer} onClick={this.closeOnClickingOutsideModal}>
                         <div className='warning-modal' id='alert-modal'>
                             <div className='modal-contents'>
                                 <div className='warning-icon'>
@@ -47,7 +40,7 @@ class Modal extends React.Component{
                                 <div className='warning-message'>
                                     {this.props.message}
                                 </div>
-                                <button type='button ' className='generic-close-button' onClick={this.hideModal}>
+                                <button type='button ' className='generic-close-button' ref={this.closeButton} onClick={this.closeOnClickingButton}>
                                     ok
                                 </button>
                             </div>

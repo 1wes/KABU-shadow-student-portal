@@ -3,6 +3,7 @@ import React from 'react';
 import axios from './baseUrl';
 import {Link} from 'react-router-dom';
 import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './components/password-reset';
+import Modal from './components/modal';
 
 function Login(props){
 
@@ -168,6 +169,7 @@ class App extends React.Component{
             </Contentsegment>
           </Centeredsegment>
           <Footnote/>
+          <Modal/>
         </div>
         
       </React.Fragment>

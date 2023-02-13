@@ -29,8 +29,8 @@ class Modal extends React.Component{
 
         return(
             <React.Fragment>
-                <div className='modal-wrapper' id='main-wrapper' >  
-                    <div className='modal' id='modal-container' ref={this.props.modalContainer} onClick={this.closeOnClickingOutsidemodal}>
+                <div className='modal-wrapper' id='main-wrapper' ref={this.props.modalWrapper} >  
+                    <div className='modal' id='modal-container'  onClick={this.closeOnClickingOutsidemodal}>
                         <div className='warning-modal' id='alert-modal'>
                             <div className='modal-contents'>
                                 <div className='warning-icon'>
@@ -55,5 +55,5 @@ class Modal extends React.Component{
 }
 
 export default React.forwardRef((props, ref)=>(
-    <Modal {...props} modalContainer={ref} />
+    <Modal {...props} modalWrapper={ref} />
 ))

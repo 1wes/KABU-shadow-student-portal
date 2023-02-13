@@ -130,11 +130,15 @@ class Resetpassword extends React.Component{
 
         this.state={
             reg_no:'',
-            valid:false
+            valid:false, 
+            modalIsOpen:false
         }
 
         this.handleRegChange=this.handleRegChange.bind(this);
         this.submitForm=this.submitForm.bind(this);
+        this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
+        this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
+        this.modalWrapper=React.createRef();
     }
 
     handleRegChange=new_reg_no=>{
@@ -158,12 +162,35 @@ class Resetpassword extends React.Component{
 
         let validity=this.state.valid;
 
-        validity===true?alert(true):
-        alert(false)
+        let wrapper=this.modalWrapper.current
+
+        if(validity==true){
+            alert(true);
+        }else{
+            wrapper.style.display='block'
+        }
 
         this.setState({
             valid:!this.state.valid
         });
+    }
+
+    closeOnClickingOnButton=e=>{
+
+        e.preventDefault();
+
+        let wrapper=this.modalWrapper.current
+
+        wrapper.style.display='none'
+
+    }
+
+    closeOnClickingOutsideModal=()=>{
+
+        let wrapper=this.modalWrapper.current
+
+        wrapper.style.display='none'
+
     }
 
     render(){
@@ -183,7 +210,8 @@ class Resetpassword extends React.Component{
                 </Centeredsegment>
 
                 <Footnote/>
-                <Modal message={warningMessage} />
+                <Modal message={warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+                closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />
             </div>
             </React.Fragment>
         )

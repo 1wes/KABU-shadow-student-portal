@@ -13,12 +13,12 @@ class Modal extends React.Component{
             isOpen:false
         }
 
-        this.closeOnClickingOutsidemodal=this.closeOnClickingOutsidemodal.bind(this);
+        this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
         this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
     }
 
-    closeOnClickingOutsidemodal=()=>{
-        this.props.closeOnClickingoutsidemodal();
+    closeOnClickingOutsideModal=()=>{
+        this.props.closeOnClickingOutsideModal();
     }
 
     closeOnClickingOnButton=(e)=>{
@@ -30,7 +30,7 @@ class Modal extends React.Component{
         return(
             <React.Fragment>
                 <div className='modal-wrapper' id='main-wrapper' ref={this.props.modalWrapper} >  
-                    <div className='modal' id='modal-container'  onClick={this.closeOnClickingOutsidemodal}>
+                    <div className='modal' id='modal-container'  onClick={this.closeOnClickingOutsideModal}>
                         <div className='warning-modal' id='alert-modal'>
                             <div className='modal-contents'>
                                 <div className='warning-icon'>

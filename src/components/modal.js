@@ -15,8 +15,6 @@ class Modal extends React.Component{
 
         this.closeOnClickingOutsidemodal=this.closeOnClickingOutsidemodal.bind(this);
         this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
-        this.closeButton=React.createRef();
-        this.modalContainer=React.createRef();
     }
 
     closeOnClickingOutsidemodal=()=>{
@@ -32,7 +30,7 @@ class Modal extends React.Component{
         return(
             <React.Fragment>
                 <div className='modal-wrapper' id='main-wrapper' >  
-                    <div className='modal' id='modal-container' ref={this.modalContainer} onClick={this.closeOnClickingOutsidemodal}>
+                    <div className='modal' id='modal-container' ref={this.props.modalContainer} onClick={this.closeOnClickingOutsidemodal}>
                         <div className='warning-modal' id='alert-modal'>
                             <div className='modal-contents'>
                                 <div className='warning-icon'>
@@ -44,7 +42,7 @@ class Modal extends React.Component{
                                 <div className='warning-message'>
                                     {this.props.message}
                                 </div>
-                                <button type='button ' className='generic-close-button' ref={this.closeButton} onClick={this.closeOnClickingOnButton}>
+                                <button type='button ' className='generic-close-button' onClick={this.closeOnClickingOnButton}>
                                     ok
                                 </button>
                             </div>
@@ -56,4 +54,6 @@ class Modal extends React.Component{
     }
 }
 
-export default Modal 
+export default React.forwardRef((props, ref)=>(
+    <Modal {...props} modalContainer={ref} />
+))

@@ -19,6 +19,14 @@ class Modal extends React.Component{
         this.modalContainer=React.createRef();
     }
 
+    closeOnClickingOutsidemodal=()=>{
+        this.props.closeOnClickingoutsidemodal();
+    }
+
+    closeOnClickingOnButton=(e)=>{
+        this.props.closeOnClickingOnButton(e)
+    }
+
     render(){
 
         return(

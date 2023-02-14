@@ -165,9 +165,12 @@ class Resetpassword extends React.Component{
         let wrapper=this.modalWrapper.current
 
         if(validity==true){
-            alert(true);
+            console.log(true);
         }else{
-            wrapper.style.display='block'
+            let wrapperClass=wrapper.getAttribute('class');
+
+            wrapper.classList.remove(wrapperClass);
+            wrapper.classList.add('modal-show')
         }
 
         this.setState({
@@ -181,7 +184,11 @@ class Resetpassword extends React.Component{
 
         let wrapper=this.modalWrapper.current
 
-        wrapper.style.display='none'
+        let wrapperClass=wrapper.getAttribute('class');
+
+        wrapper.classList.remove(wrapperClass);
+        wrapper.classList.add('modal-wrapper')
+
 
     }
 
@@ -189,8 +196,10 @@ class Resetpassword extends React.Component{
 
         let wrapper=this.modalWrapper.current
 
-        wrapper.style.display='none'
+        let wrapperClass=wrapper.getAttribute('class');
 
+        wrapper.classList.remove(wrapperClass);
+        wrapper.classList.add('modal-wrapper')
     }
 
     render(){

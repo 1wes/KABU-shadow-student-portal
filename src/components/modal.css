@@ -26,7 +26,47 @@
     width: 32%;
     display: flex;
     justify-content: center;
+    transition: all;
 }
+
+.warning-modal{
+    -webkit-animation-name: bounce; 
+    animation-name: bounce;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s; 
+}
+
+@keyframes bounce {
+    0% {
+      /*transform*/
+      -webkit-transform:scale3d(0.1,0.1,1);
+         -moz-transform:scale3d(0.1,0.1,1);
+          -ms-transform:scale3d(0.1,0.1,1);
+           -o-transform:scale3d(0.1,0.1,1);
+              transform:scale3d(0.1,0.1,1);
+    }
+    55% {
+      -webkit-transform: scale3d(1.08,1.08,1);
+      -moz-transform: scale3d(1.08,1.08,1);
+      -ms-transform: scale3d(1.08,1.08,1);
+      -o-transform: scale3d(1.08,1.08,1);
+      transform: scale3d(1.08,1.08,1);
+    }
+    75% {
+      -webkit-transform: scale3d(0.95,0.95,1);
+      -moz-transform: scale3d(0.95,0.95,1);
+      -ms-transform: scale3d(0.95,0.95,1);
+      -o-transform: scale3d(0.95,0.95,1);
+      transform: scale3d(0.95,0.95,1);
+    }
+    100% {
+      -webkit-transform: scale3d(1,1,1);
+      -moz-transform: scale3d(1,1,1);
+      -ms-transform: scale3d(1,1,1);
+      -o-transform: scale3d(1,1,1);
+      transform: scale3d(1,1,1);
+    }
+  }
 
 .modal-contents{
     display: flex;

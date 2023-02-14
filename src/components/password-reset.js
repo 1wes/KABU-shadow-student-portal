@@ -170,11 +170,15 @@ class Resetpassword extends React.Component{
 
         if(validity){
             console.log(true);
-        }else{
+        }else if(!validity&&!this.state.modalIsOpen){
             let wrapperClass=wrapper.getAttribute('class');
 
             wrapper.classList.remove(wrapperClass);
             wrapper.classList.add('modal-show')
+
+            this.setState({
+                modalIsOpen:!this.state.modalIsOpen
+            })
         }
     }
 
@@ -182,24 +186,37 @@ class Resetpassword extends React.Component{
 
         e.preventDefault();
 
-        let wrapper=this.modalWrapper.current
+        if(this.state.modalIsOpen){
+            let wrapper=this.modalWrapper.current
 
-        let wrapperClass=wrapper.getAttribute('class');
+            let wrapperClass=wrapper.getAttribute('class');
+    
+            wrapper.classList.remove(wrapperClass);
+            wrapper.classList.add('modal-wrapper')
 
-        wrapper.classList.remove(wrapperClass);
-        wrapper.classList.add('modal-wrapper')
-
-
+            this.setState({
+                modalIsOpen:!this.state.modalIsOpen
+            })
+        }
     }
 
     closeOnClickingOutsideModal=()=>{
 
         let wrapper=this.modalWrapper.current
 
-        let wrapperClass=wrapper.getAttribute('class');
+        if(this.state.modalIsOpen){
+            let wrapperClass=wrapper.getAttribute('class');
 
-        wrapper.classList.remove(wrapperClass);
-        wrapper.classList.add('modal-wrapper')
+            wrapper.classList.remove(wrapperClass);
+            wrapper.classList.add('modal-wrapper')
+
+            this.setState({
+                modalIsOpen:!this.state.modalIsOpen
+            })
+        }
+
+
+
     }
 
     render(){

@@ -104,14 +104,27 @@ class App extends React.Component{
   handleRegChange=(newRegNo)=>{
 
     this.setState({
-      
-    })
+      reg_no:newRegNo
+    });
+
   }
 
   handlePasswordChange=(newPassword)=>{
     this.setState({
       password:newPassword
     });    
+  }
+
+  validateInput=(registrationNumber, password)=>{
+    if(registrationNumber!==''&& password!==''){
+      this.setState({
+        valid:!false
+      });
+    }else{
+      this.setState({
+        valid:false
+      });
+    }
   }
 
   closeOnClickingOnButton=e=>{

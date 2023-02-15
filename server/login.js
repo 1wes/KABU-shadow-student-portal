@@ -17,7 +17,9 @@ router.post("/login", (req, res)=>{
             throw err
         }
 
-        let passwordMatch=await comparePassword(password, result[0].password);
+        var hashedPassword=result[0].password;
+
+        let passwordMatch=await comparePassword(password, hashedPassword);
 
         if(!passwordMatch || result.length==0){
             

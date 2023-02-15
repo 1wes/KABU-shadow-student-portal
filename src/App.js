@@ -88,24 +88,39 @@ class App extends React.Component{
 
     this.state={
       reg_no:'',
-      password:''
+      password:'',
+      valid:false,
+      modalIsOpen:false,
     }
 
     this.submitForm=this.submitForm.bind(this);
     this.handleRegChange=this.handleRegChange.bind(this);
     this.handlePasswordChange=this.handlePasswordChange.bind(this);
+    this.modalWrapper=React.createRef();
+    this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
+    this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
   }
 
   handleRegChange=(newRegNo)=>{
+
     this.setState({
-      reg_no:newRegNo
-    });
+      
+    })
   }
 
   handlePasswordChange=(newPassword)=>{
     this.setState({
       password:newPassword
     });    
+  }
+
+  closeOnClickingOnButton=e=>{
+    e.preventDefault();
+  }
+
+  closeOnClickingOutsideModal=()=>{
+    let modal=this.modalWrapper.current;
+
   }
 
   submitForm=e=>{
@@ -118,33 +133,33 @@ class App extends React.Component{
     }
 
     // post the data to the backend
-    axios.post("/student/login", userDetails).then(res=>{
+    // axios.post("/student/login", userDetails).then(res=>{
 
-      if(res.status===201){
+    //   if(res.status===201){
 
-        const headersConfig={
-          headers:{
-            'auth_token':res.data.responseData.token
-          }
-        }
+    //     const headersConfig={
+    //       headers:{
+    //         'auth_token':res.data.responseData.token
+    //       }
+    //     }
 
-        axios.post("/student/auth", '', headersConfig).then(res=>{
-          alert(JSON.stringify(res.status));
-        }).catch(err=>{
-          alert(err.response.status);
-        })
+    //     axios.post("/student/auth", '', headersConfig).then(res=>{
+    //       alert(JSON.stringify(res.status));
+    //     }).catch(err=>{
+    //       alert(err.response.status);
+    //     })
 
-      }
+    //   }
 
-    }).catch(err=>{
-      alert(err.response.status)
-      // clear the state after submitting the details
-    });
+    // }).catch(err=>{
+    //   alert(err.response.status)
+    //   // clear the state after submitting the details
+    // });
   }
 
   render(){
 
-    let text='Log In'
+    let text='Log In';
 
     return(
 
@@ -169,7 +184,8 @@ class App extends React.Component{
             </Contentsegment>
           </Centeredsegment>
           <Footnote/>
-          <Modal/>
+          <Modal message={this.state.warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+          closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />
         </div>
         
       </React.Fragment>

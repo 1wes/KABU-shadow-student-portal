@@ -196,7 +196,8 @@ class App extends React.Component{
 
   render(){
 
-    let text='Log In';
+    let buttonMessgae='Log In';
+    let warningMessage='Enter registration number'
 
     return(
 
@@ -213,7 +214,7 @@ class App extends React.Component{
               </Login>
 
               <div className='sub-btn-div'>
-                <SubmitButton text={text} submitForm={this.submitForm} />
+                <SubmitButton buttonMessgae={buttonMessgae} submitForm={this.submitForm} />
               </div>
 
               <Forgotpasswordlink/>
@@ -221,7 +222,7 @@ class App extends React.Component{
             </Contentsegment>
           </Centeredsegment>
           <Footnote/>
-          <Modal message={this.state.warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+          <Modal message={warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
           closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />
         </div>
         

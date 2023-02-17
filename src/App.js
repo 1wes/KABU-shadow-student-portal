@@ -115,18 +115,6 @@ class App extends React.Component{
     });    
   }
 
-  validateInput=(registrationNumber, password)=>{
-    if(registrationNumber!==''&& password!==''){
-      this.setState({
-        valid:!false
-      });
-    }else{
-      this.setState({
-        valid:false
-      });
-    }
-  }
-
   closeOnClickingOnButton=e=>{
     e.preventDefault();
   }

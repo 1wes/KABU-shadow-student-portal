@@ -145,12 +145,23 @@ class App extends React.Component{
 
     e.preventDefault();
 
-    const {validReg, validPassword}=this.state;
+    const {validReg, validPassword, modalIsOpen}=this.state;
 
-    if(validReg && validPassword){
+    if(validReg && validPassword && !modalIsOpen){
       alert("valid")
+
     }else{
-      alert("Invalid")
+
+      let wrapper=this.modalWrapper.current;
+
+      let wrapperClass=wrapper.getAttribute('class');
+
+      wrapper.classList.remove(wrapperClass);
+      wrapper.classList.add('modal-show')
+
+      this.setState({
+          modalIsOpen:!this.state.modalIsOpen
+      })
     }
 
     // const userDetails={

@@ -89,7 +89,8 @@ class App extends React.Component{
     this.state={
       reg_no:'',
       password:'',
-      valid:false,
+      validReg:false,
+      validPassword:false,
       modalIsOpen:false,
     }
 
@@ -103,16 +104,32 @@ class App extends React.Component{
 
   handleRegChange=(newRegNo)=>{
 
-    this.setState({
-      reg_no:newRegNo
-    });
-
+    if(newRegNo!==''){
+      this.setState({
+        reg_no:newRegNo,
+        validReg:true
+      })
+    }else{
+      this.setState({
+        reg_no:'',
+        validReg:false
+      })
+    }
   }
 
   handlePasswordChange=(newPassword)=>{
-    this.setState({
-      password:newPassword
-    });    
+
+    if(newPassword!==''){
+      this.setState({
+        password:newPassword,
+        validPassword:true
+      });
+    }else{
+      this.setState({
+        password:'',
+        validPassword:false
+      })
+    }
   }
 
   closeOnClickingOnButton=e=>{
@@ -128,10 +145,18 @@ class App extends React.Component{
 
     e.preventDefault();
 
-    const userDetails={
-      reg_no:this.state.reg_no,
-      password:this.state.password
+    const {validReg, validPassword}=this.state;
+
+    if(validReg && validPassword){
+      alert("valid")
+    }else{
+      alert("Invalid")
     }
+
+    // const userDetails={
+    //   reg_no:this.state.reg_no,
+    //   password:this.state.password
+    // }
 
     // post the data to the backend
     // axios.post("/student/login", userDetails).then(res=>{

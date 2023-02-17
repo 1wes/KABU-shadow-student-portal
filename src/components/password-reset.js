@@ -71,7 +71,7 @@ class SubmitButton extends React.Component{
             <React.Fragment>
                 <div className='submit-btn'>
                     <button className='reg-submit-btn' type='submit' value='Submit' onClick={this.submitForm}>
-                        {this.props.text}
+                        {this.props.buttonMessgae}
                     </button>
                 </div>
             </React.Fragment>

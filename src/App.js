@@ -150,8 +150,18 @@ class App extends React.Component{
   }
 
   closeOnClickingOutsideModal=()=>{
-    let modal=this.modalWrapper.current;
+    let wrapper=this.modalWrapper.current;
 
+    if(this.state.modalIsOpen){
+      let wrapperClass=wrapper.getAttribute('class');
+
+      wrapper.classList.remove(wrapperClass);
+      wrapper.classList.add('modal-wrapper')
+
+      this.setState({
+          modalIsOpen:!this.state.modalIsOpen
+      })
+    }
   }
 
   submitForm=e=>{

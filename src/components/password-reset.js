@@ -71,7 +71,7 @@ class SubmitButton extends React.Component{
             <React.Fragment>
                 <div className='submit-btn'>
                     <button className='reg-submit-btn' type='submit' value='Submit' onClick={this.submitForm}>
-                        {this.props.buttonMessgae}
+                        {this.props.buttonMessage}
                     </button>
                 </div>
             </React.Fragment>
@@ -98,7 +98,7 @@ class Resetform extends React.Component{
 
     render(){
 
-
+        let submitBtnMessage='Reset password'
         return(
             <React.Fragment>
                 <form className='reset-form'> 
@@ -111,7 +111,7 @@ class Resetform extends React.Component{
                         </input>
                     </div>
 
-                    <SubmitButton text='Reset password' submitForm={this.submitForm}/>
+                    <SubmitButton text='Reset password' buttonMessage={submitBtnMessage} submitForm={this.submitForm}/>
 
                     <div className='homepage-login'>
                         <span><Link id='back-to-homepage' to="/">Login</Link></span>

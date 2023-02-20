@@ -142,20 +142,15 @@ class Resetpassword extends React.Component{
     }
 
     handleRegChange=new_reg_no=>{
-        
-        this.setState({
-            reg_no:new_reg_no
-        });
 
-        let reg=this.state.reg_no
-
-
-        if(reg!==''){
+        if(new_reg_no!==''){
             this.setState({
+                reg_no:new_reg_no,
                 valid:true
-            });
+            })
         }else{
             this.setState({
+                reg_no:'',
                 valid:false
             })
         }

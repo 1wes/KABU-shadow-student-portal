@@ -134,6 +134,19 @@ class App extends React.Component{
 
   closeOnClickingOnButton=e=>{
     e.preventDefault();
+    
+    if(this.state.modalIsOpen){
+      let wrapper=this.modalWrapper.current
+
+      let wrapperClass=wrapper.getAttribute('class');
+
+      wrapper.classList.remove(wrapperClass);
+      wrapper.classList.add('modal-wrapper')
+
+      this.setState({
+          modalIsOpen:!this.state.modalIsOpen
+      })
+    }
   }
 
   closeOnClickingOutsideModal=()=>{

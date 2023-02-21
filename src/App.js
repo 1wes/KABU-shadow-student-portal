@@ -171,9 +171,35 @@ class App extends React.Component{
     const {validReg, validPassword, modalIsOpen}=this.state;
 
     if(validReg && validPassword && !modalIsOpen){
-      alert("valid")
+      
+      const userDetails={
+        reg_no:this.state.reg_no,
+        password:this.state.password
+      }
 
-    }else{
+          // post the data to the backend
+    axios.post("/student/login", userDetails).then(res=>{
+
+      if(res.status===201){
+
+        const headersConfig={
+          headers:{
+            'auth_token':res.data.responseData.token
+          }
+        }
+
+        axios.post("/student/auth", '', headersConfig).then(res=>{
+          alert(JSON.stringify(res.status));
+        }).catch(err=>{
+          alert(err.response.status);
+        })
+
+      }
+
+    }).catch(err=>{
+      alert(err.response.status)
+      // clear the state after submitting the details
+    })}else{
 
       let wrapper=this.modalWrapper.current;
 
@@ -186,35 +212,6 @@ class App extends React.Component{
           modalIsOpen:!this.state.modalIsOpen
       })
     }
-
-    // const userDetails={
-    //   reg_no:this.state.reg_no,
-    //   password:this.state.password
-    // }
-
-    // post the data to the backend
-    // axios.post("/student/login", userDetails).then(res=>{
-
-    //   if(res.status===201){
-
-    //     const headersConfig={
-    //       headers:{
-    //         'auth_token':res.data.responseData.token
-    //       }
-    //     }
-
-    //     axios.post("/student/auth", '', headersConfig).then(res=>{
-    //       alert(JSON.stringify(res.status));
-    //     }).catch(err=>{
-    //       alert(err.response.status);
-    //     })
-
-    //   }
-
-    // }).catch(err=>{
-    //   alert(err.response.status)
-    //   // clear the state after submitting the details
-    // });
   }
 
   render(){
@@ -254,4 +251,3 @@ class App extends React.Component{
   }
 }
 export default App;
-

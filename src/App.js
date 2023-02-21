@@ -234,7 +234,7 @@ class App extends React.Component{
               </Login>
 
               <div className='sub-btn-div'>
-                <SubmitButton buttonMessgae={buttonMessgae} submitForm={this.submitForm} />
+                <SubmitButton buttonMessage={buttonMessgae} submitForm={this.submitForm} />
               </div>
 
               <Forgotpasswordlink/>

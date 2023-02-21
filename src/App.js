@@ -168,13 +168,13 @@ class App extends React.Component{
 
     e.preventDefault();
 
-    const {validReg, validPassword, modalIsOpen}=this.state;
+    const {validReg, validPassword, modalIsOpen, reg_no, password}=this.state;
 
     if(validReg && validPassword && !modalIsOpen){
-      
+
       const userDetails={
-        reg_no:this.state.reg_no,
-        password:this.state.password
+        reg_no:reg_no,
+        password:password
       }
 
           // post the data to the backend

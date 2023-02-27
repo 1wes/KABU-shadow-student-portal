@@ -170,7 +170,7 @@ class Resetpassword extends React.Component{
                 reg:reg_no
             }
 
-            axios.post('/student/resetPassword', regData).then(res=>{
+            axios.post('/student/forgotPassword', regData).then(res=>{
                 alert(JSON.stringify(res.status))
             }).catch(err=>{
                 console.log(err)

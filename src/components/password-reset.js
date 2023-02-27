@@ -3,6 +3,8 @@ import './password-reset.css';
 import {Link} from 'react-router-dom';
 import Footnote from './footnote';
 import Modal from './modal';
+import axios from '../baseUrl';
+
 
 let warningMessage="Enter Registration Number"
 
@@ -159,13 +161,22 @@ class Resetpassword extends React.Component{
     submitForm=e=>{
         e.preventDefault();
 
-        let {validity, modalIsOpen}=this.state;
+        let {valid, modalIsOpen, reg_no}=this.state;
 
         let wrapper=this.modalWrapper.current
 
-        if(validity){
-            console.log(true);
-        }else if(!validity&&!modalIsOpen){
+        if(valid){
+            let regData={
+                reg:reg_no
+            }
+
+            axios.post('/student/resetPassword', regData).then(res=>{
+                alert(JSON.stringify(res.status))
+            }).catch(err=>{
+                console.log(err)
+            })
+
+        }else if(!valid&&!modalIsOpen){
             let wrapperClass=wrapper.getAttribute('class');
 
             wrapper.classList.remove(wrapperClass);

@@ -159,13 +159,13 @@ class Resetpassword extends React.Component{
     submitForm=e=>{
         e.preventDefault();
 
-        let validity=this.state.valid;
+        let {validity, modalIsOpen}=this.state;
 
         let wrapper=this.modalWrapper.current
 
         if(validity){
             console.log(true);
-        }else if(!validity&&!this.state.modalIsOpen){
+        }else if(!validity&&!modalIsOpen){
             let wrapperClass=wrapper.getAttribute('class');
 
             wrapper.classList.remove(wrapperClass);

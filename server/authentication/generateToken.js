@@ -7,4 +7,4 @@ const generateToken=(reg_no)=>{
     return jwt.sign(reg_no, secret_key, {expiresIn:'1h'});
 }
 
-exports.module=generateToken;
+module.exports=generateToken;

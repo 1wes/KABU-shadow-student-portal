@@ -29,7 +29,7 @@ router.post("/login", (req, res)=>{
         // if the user exists and password checks out
         let token=generateToken({reg_no:result[0].reg_no});
 
-        res.cookie("token", token, {
+        res.cookie("authorization-cookie", token, {
             httpOnly:true,
             sameSite:'lax',
             secure:true

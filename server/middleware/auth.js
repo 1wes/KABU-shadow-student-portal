@@ -1,27 +1,25 @@
-const express=require('express');
-const router=express.Router();
 const jwt=require('jsonwebtoken');
 const {token_secret_key}=require('../env-config');
 
-router.post("/auth", (req, res)=>{
+let cookie=(req, res, next)=>{
 
-    const token=req.headers['auth_token'];
-    
-    if(token){
+    let authCookie=req.cookies.authorization-token;
 
-        const validToken=jwt.verify(token, token_secret_key);
+    if(authCookie){
+
+        const validToken=jwt.verify(authCookie, token_secret_key);
 
         if(validToken){
-            res.status(200).send("Login validated");
-        }else{
-            res.status(401).send("Unauthorized token");
-        }
+            res.status(200)
 
+            next();
+        }else{
+            res.status(401)
+        }
     }else{
-        res.status(403).send("Forbidden");
+        res.status(403);
     }
 
+}
 
-})
-
-module.exports=router;
+module.exports=cookie;

@@ -102,6 +102,10 @@ class App extends React.Component{
     this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
   }
 
+  saySomething=(something)=>{
+    console.log(something)
+  }
+
   handleRegChange=(newRegNo)=>{
 
     if(newRegNo!==''){
@@ -177,25 +181,9 @@ class App extends React.Component{
         password:password
       }
 
-          // post the data to the backend
+    // post the data to the backend
     axios.post("/student/login", userDetails).then(res=>{
-
-      if(res.status===201){
-
-        const headersConfig={
-          headers:{
-            'auth_token':res.data.responseData.token
-          }
-        }
-
-        axios.post("/student/auth", '', headersConfig).then(res=>{
-          alert(JSON.stringify(res.status));
-        }).catch(err=>{
-          alert(err.response.status);
-        })
-
-      }
-
+      alert(res.status);
     }).catch(err=>{
       alert(err.response.status)
       // clear the state after submitting the details
@@ -204,7 +192,10 @@ class App extends React.Component{
       let wrapper=this.modalWrapper.current;
 
       let wrapperClass=wrapper.getAttribute('class');
-
+      this.setState({
+        reg_no:'',
+        password:''
+      })
       wrapper.classList.remove(wrapperClass);
       wrapper.classList.add('modal-show')
 

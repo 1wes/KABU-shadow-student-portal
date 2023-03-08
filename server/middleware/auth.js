@@ -3,7 +3,7 @@ const {token_secret_key}=require('../env-config');
 
 let cookie=(req, res, next)=>{
 
-    let authCookie=req.cookies.authorization-token;
+    let authCookie=req.cookies.authorizationCookie;
 
     if(authCookie){
 

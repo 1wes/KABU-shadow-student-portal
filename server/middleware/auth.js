@@ -1,7 +1,7 @@
 const jwt=require('jsonwebtoken');
 const {token_secret_key}=require('../env-config');
 
-let cookie=(req, res, next)=>{
+let tokenVerifier=(req, res, next)=>{
 
     let authCookie=req.cookies.authorizationCookie;
 
@@ -11,7 +11,7 @@ let cookie=(req, res, next)=>{
 
         if(validToken){
             statusCode=200;
-            
+
             next();
         }else{
             statusCode=400;
@@ -28,4 +28,4 @@ let cookie=(req, res, next)=>{
 
 }
 
-module.exports=cookie;
+module.exports=tokenVerifier;

@@ -27,5 +27,6 @@ module.exports={
     node_env:process.env.NODE_ENV,
     token_secret_key:process.env.TOKEN_SECRET_KEY,
     email:process.env.EMAIL_SENDER,
-    sender_password:process.env.SENDER_PASSWORD
+    client_id:process.env.CLIENT_ID,
+    client_secret:process.env.CLIENT_SECRET
 }

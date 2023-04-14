@@ -44,6 +44,4 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
 
 
 })
-module.exports={
-    forgotPassword:router
-}
+module.exports=router

@@ -1,12 +1,13 @@
 import React from 'react';
 import './password-reset.css';
-import {Link} from 'react-router-dom';
+import {Link, json} from 'react-router-dom';
 import Footnote from './footnote';
 import Modal from './modal';
 import axios from '../baseUrl';
 
 
-let warningMessage="Enter Registration Number"
+let warningMessage="Enter Registration Number";
+let infoMessage="Reset link has been sent to "
 
 function Centeredsegment(props){
 
@@ -133,7 +134,8 @@ class Resetpassword extends React.Component{
         this.state={
             reg_no:'',
             valid:false, 
-            modalIsOpen:false
+            modalIsOpen:false,
+            email:''
         }
 
         this.handleRegChange=this.handleRegChange.bind(this);
@@ -171,7 +173,20 @@ class Resetpassword extends React.Component{
             }
 
             axios.post('/student/forgotPassword', regData).then(res=>{
-                alert(JSON.stringify(res.status))
+
+                this.setState({
+                    email:JSON.stringify(res.data)
+                })
+
+                let wrapperClass=wrapper.getAttribute('class');
+
+                wrapper.classList.remove(wrapperClass);
+                wrapper.classList.add('modal-show')
+    
+                this.setState({
+                    modalIsOpen:!this.state.modalIsOpen
+                })
+
             }).catch(err=>{
                 console.log(err)
             })
@@ -242,8 +257,11 @@ class Resetpassword extends React.Component{
                 </Centeredsegment>
 
                 <Footnote/>
-                <Modal message={warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
-                closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />
+                {
+                    this.state.email===''?<Modal message={warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+                    closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />:<Modal message={`${infoMessage} ${this.state.email}`} ref={this.modalWrapper} 
+                    closeOnClickingOnButton={this.closeOnClickingOnButton} closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} /> 
+                }
             </div>
             </React.Fragment>
         )

@@ -30,18 +30,18 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
                 text:"I have successfully sent the email"
             }
 
+            res.send(result[0].email);
+
             transporter.sendMail(mailOptions, (err, info)=>{
 
                 if(err){
                     throw err
                 }
 
-                console.log("Mail successfully sent "+info.response);
+                res.send(result[0].email);
+
             })
-             
         })
     }
-
-
 })
 module.exports=router

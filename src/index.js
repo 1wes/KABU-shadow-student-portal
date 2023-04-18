@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Resetpassword from './components/password-reset';
+import Resetpassword from './components/forgot-password';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 // get the root of the app

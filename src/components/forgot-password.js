@@ -1,5 +1,5 @@
 import React from 'react';
-import './password-reset.css';
+import './forgot-password.css';
 import {Link, json} from 'react-router-dom';
 import Footnote from './footnote';
 import Modal from './modal';

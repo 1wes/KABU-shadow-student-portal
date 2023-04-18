@@ -1,6 +1,6 @@
 const nodemailer=require('nodemailer');
 const{email, client_id, client_secret, refresh_token, access_token}=require('../env-config');
-const recipient=require('../middleware/reset-password');
+const recipient=require('../middleware/forgot-password');
 
 console.log(recipient);
 

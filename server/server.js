@@ -4,7 +4,7 @@ const app=express();
 const cors=require('cors');
 const cookieParser=require('cookie-parser');
 const login=require('./login');
-const forgotPassword=require('./middleware/reset-password');
+const forgotPassword=require('./middleware/forgot-password');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

@@ -15,7 +15,7 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
         
         let {reg}=req.body;
 
-        let getEmail=`SELECT email from students WHERE reg_no=?`;
+        let getEmail=`SELECT * from students WHERE reg_no=?`;
 
         con.query(getEmail,reg, (err, result)=>{
 
@@ -23,11 +23,18 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
                 throw err
             }
 
+            let subject=`KABARAK PORTAL RESET PASSWORD LINK`;
+            let name=`${result[0].surname} ${result[0].first_name} ${result[0].last_name}`;
+            let capitalizedName=name.toUpperCase();
+
             const mailOptions={
                 from:email,
                 to:result[0].email,
-                subject:"Test Email",
-                text:"I have successfully sent the email"
+                subject:subject,
+                html:`Hi ${capitalizedName}.`+"<br/>Kindly click <a href='me/there'>here</a> to reset your password. <hr /> Note that this is an auto generated email."+
+                " Kindly do not reply to it. <br/> <br/>"+
+                "Incase of any challenges, please contact Admission office for assistance. <br/> Contact Email : <a href='mailto=okemwawes@gmail.com'>okemwawes@gmail.com</a>"+
+                "<br/> <br/> Best Regards."
             }
 
             res.send(result[0].email);

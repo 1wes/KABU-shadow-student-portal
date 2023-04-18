@@ -23,6 +23,8 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
                 throw err
             }
 
+            console.log(result[0])
+
             let subject=`KABARAK PORTAL RESET PASSWORD LINK`;
             let name=`${result[0].surname} ${result[0].first_name} ${result[0].last_name}`;
             let capitalizedName=name.toUpperCase();
@@ -36,8 +38,6 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
                 "Incase of any challenges, please contact Admission office for assistance. <br/> Contact Email : <a href='mailto=okemwawes@gmail.com'>okemwawes@gmail.com</a>"+
                 "<br/> <br/> Best Regards."
             }
-
-            res.send(result[0].email);
 
             transporter.sendMail(mailOptions, (err, info)=>{
 

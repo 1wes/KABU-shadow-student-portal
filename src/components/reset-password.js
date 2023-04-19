@@ -9,6 +9,18 @@ class EnterNewPassword extends React.Component{
 
         return(
             <React.Fragment>
+                
+            </React.Fragment>
+        )
+    }
+}
+
+class Changepassword extends React.Component{
+
+    render(){
+
+        return(
+            <React.Fragment>
                 <div className='change-password'>
                     <Centeredsegment>
                         <Contentsegment>
@@ -23,4 +35,4 @@ class EnterNewPassword extends React.Component{
         )
     }
 }
-export default EnterNewPassword;
+export default Changepassword;

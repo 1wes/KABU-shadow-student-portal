@@ -7,6 +7,23 @@ let submitMessage=`Change Password`;
 
 class EnterNewPasswordForm extends React.Component{
 
+    constructor(props){
+
+        super(props)
+
+        this.handleNewPassword=this.handleNewPassword.bind(this);
+        this.handleRepeatPassword=this.handleRepeatPassword.bind(this);
+    }
+
+    handleNewPassword=(event)=>{
+       
+        this.props.handleNewPassword(event.target.value);
+    }
+
+    handleRepeatPassword=(event)=>{
+        this.props.handleRepeatPassword(event.target.value);
+    }
+    
     render(){
 
         return(

@@ -64,6 +64,7 @@ class Changepassword extends React.Component{
 
         this.handleNewPassword=this.handleNewPassword.bind(this);
         this.handleRepeatPassword=this.handleRepeatPassword.bind(this);
+        this.submitForm=this.submitForm.bind(this);
     }
 
     handleNewPassword=(newPassword)=>{
@@ -80,6 +81,11 @@ class Changepassword extends React.Component{
                 confirmPassword:confirmPassword
             })
         }
+    }
+
+    submitForm=e=>{
+        e.preventDefault();
+
     }
 
     render(){

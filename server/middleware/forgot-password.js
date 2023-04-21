@@ -4,7 +4,7 @@ const router=express.Router();
 const tokenVerifier=require('./auth');
 const con=require('../database');
 const transporter=require('../utils/mailer');
-const email=require('../env-config')
+const {email, pwd_reset_link}=require('../env-config')
 
 app.use(tokenVerifier);
 
@@ -33,7 +33,7 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
                 from:email,
                 to:result[0].email,
                 subject:subject,
-                html:`Hi ${capitalizedName}.`+"<br/>Kindly click <a href='me/there'>here</a> to reset your password. <hr /> Note that this is an auto generated email."+
+                html:`Hi ${capitalizedName}.<br/>Kindly click <a href=${pwd_reset_link}>here</a> to reset your password. <hr /> Note that this is an auto generated email.`+
                 " Kindly do not reply to it. <br/> <br/>"+
                 "Incase of any challenges, please contact Admission office for assistance. <br/> Contact Email : <a href='mailto=okemwawes@gmail.com'>okemwawes@gmail.com</a>"+
                 "<br/> <br/> Best Regards."

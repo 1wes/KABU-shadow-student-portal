@@ -30,5 +30,6 @@ module.exports={
     client_id:process.env.CLIENT_ID,
     client_secret:process.env.CLIENT_SECRET,
     access_token:process.env.ACCESS_TOKEN,
-    refresh_token:process.env.REFRESH_TOKEN
+    refresh_token:process.env.REFRESH_TOKEN,
+    pwd_reset_link:process.env.PASSWORD_RESET_LINK
 }

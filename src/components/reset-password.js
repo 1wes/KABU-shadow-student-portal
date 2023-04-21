@@ -52,6 +52,36 @@ class EnterNewPasswordForm extends React.Component{
 
 class Changepassword extends React.Component{
 
+    constructor(props){
+
+        super(props);
+
+        this.state={
+            newPassword:'',
+            confirmPassword:'',
+            passwordMatch:false
+        }
+
+        this.handleNewPassword=this.handleNewPassword.bind(this);
+        this.handleRepeatPassword=this.handleRepeatPassword.bind(this);
+    }
+
+    handleNewPassword=(newPassword)=>{
+        if(newPassword!==''){
+            this.setState({
+                newPassword:newPassword
+            })
+        }
+    }
+
+    handleRepeatPassword=(confirmPassword)=>{
+        if(confirmPassword!==''){
+            this.setState({
+                confirmPassword:confirmPassword
+            })
+        }
+    }
+
     render(){
 
         return(
@@ -61,7 +91,7 @@ class Changepassword extends React.Component{
                         <Contentsegment>
                             <Logobanner/>
                             <hr/>
-                            <EnterNewPasswordForm/>
+                            <EnterNewPasswordForm handleNewPassword={this.handleNewPassword} handleRepeatPassword={this.handleRepeatPassword} />
 
                             <div className='change-passwd-sbmt-btn'>
                                 <SubmitButton buttonMessage={submitMessage} submitForm={this.submitForm} />

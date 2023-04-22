@@ -1,8 +1,8 @@
 const bcrypt=require('bcrypt');
 
-let compareString= async (input_password, stored_password)=>{
+let compareString= async (input_variable, stored_variable)=>{
     
-    return await bcrypt.compare(input_password, stored_password)
+    return await bcrypt.compare(input_variable, stored_variable);
 
 }
 

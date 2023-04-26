@@ -37,6 +37,5 @@ module.exports={
     refresh_token:REFRESH_TOKEN,
     pwd_reset_link:PASSWORD_RESET_LINK,
     algorithm:ALGORITHM,
-    iv:IV,
     security_key:SECURITY_KEY
 }

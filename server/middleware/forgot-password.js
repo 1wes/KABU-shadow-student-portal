@@ -1,7 +1,6 @@
 const express=require('express');
 const app=express();
 const router=express.Router();
-const crypto=require('crypto');
 const tokenVerifier=require('./auth');
 const con=require('../database');
 const transporter=require('../utils/mailer');
@@ -34,18 +33,20 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
             let subject=`KABARAK PORTAL RESET PASSWORD LINK`;
             let name=`${result[0].surname} ${result[0].first_name} ${result[0].last_name}`;
             let capitalizedName=name.toUpperCase();
-            let finalUrl=`${pwd_reset_link}?user=${result[0].reg_no}&Token=${urlToken[0]}`
+            const finalUrl=new URL(pwd_reset_link);
+
+            finalUrl.searchParams.append("user", `${result[0].reg_no}`);
+            finalUrl.searchParams.append("Token", `${urlToken[0]}`);
 
             const mailOptions={
                 from:email,
                 to:result[0].email,
                 subject:subject,
-                html:`Hi ${capitalizedName}.<br/>Kindly click <a href=${finalUrl}>here</a> to reset your password. <hr /> Note that this is an auto generated email.`+
+                html:`Hi ${capitalizedName}.<br/>Kindly click <a href=${finalUrl.href.replace(/%2F/g, '/')}>here</a> to reset your password. <hr /> Note that this is an auto generated email.`+
                 " Kindly do not reply to it. <br/> <br/>"+
                 "Incase of any challenges, please contact Admission office for assistance. <br/> Contact Email : <a href='mailto=okemwawes@gmail.com'>okemwawes@gmail.com</a>"+
                 "<br/> <br/> Best Regards."
             }
-
 
             transporter.sendMail(mailOptions, (err, info)=>{
 

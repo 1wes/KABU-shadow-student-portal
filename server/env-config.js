@@ -1,13 +1,17 @@
 require('dotenv').config();
-
+const crypto=require('crypto')
 const {NODE_ENV,DB_HOST, DB_USER,DB_PASSWORD,DB_NAME,TOKEN_SECRET_KEY,EMAIL_SENDER,
-    CLIENT_ID,CLIENT_SECRET,ACCESS_TOKEN,REFRESH_TOKEN,PASSWORD_RESET_LINK,ALGORITHM,IV, SECURITY_KEY}=process.env;
+    CLIENT_ID,CLIENT_SECRET,ACCESS_TOKEN,REFRESH_TOKEN,PASSWORD_RESET_LINK,ALGORITHM}=process.env;
 
-var {PORT}=process.env;
+var {PORT, SECURITY_KEY}=process.env;
 
 switch(NODE_ENV){
 
     case 'development':
+
+        let securityKey=crypto.randomBytes(32);
+
+        SECURITY_KEY=securityKey;
 
         PORT=5000;
 

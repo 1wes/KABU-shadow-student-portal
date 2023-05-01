@@ -24,11 +24,24 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
                 throw err
             }
 
-            const resetToken=token();
+            let resetToken=token();
 
             let urlToken=resetToken.split('+');
 
-            let enctoken=encryptToken(resetToken);
+            let urlTokenTimestamp=urlToken[1];
+
+            let encryptedToken=encryptToken(resetToken);
+
+            let storeResetToken=`UPDATE students set pwd_reset_token=${urlToken[0]}, pwd_reset_token_timestamp=${urlTokenTimestamp}, enc_pwd_reset_token='${encryptedToken}' WHERE reg_no='${result[0].reg_no}'`;
+
+            con.query(storeResetToken, (err, result)=>{
+
+                if(err){
+                    throw err;
+                }
+
+                console.log("Successfully updated password reset credentials !!!")
+            } )
 
             let subject=`KABARAK PORTAL RESET PASSWORD LINK`;
             let name=`${result[0].surname} ${result[0].first_name} ${result[0].last_name}`;
@@ -54,7 +67,7 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
                     throw err
                 }
 
-                res.send(result[0].email); 
+                res.send(result[0].email);
 
             })
         })

@@ -7,7 +7,7 @@ import axios from '../baseUrl';
 
 
 let warningMessage="Enter Registration Number";
-let infoMessage="Reset link has been sent to "
+let infoMessage="A reset link has been sent to "
 
 function Centeredsegment(props){
 

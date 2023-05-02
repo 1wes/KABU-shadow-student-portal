@@ -235,9 +235,6 @@ class Resetpassword extends React.Component{
                 modalIsOpen:!this.state.modalIsOpen
             })
         }
-
-
-
     }
 
     render(){

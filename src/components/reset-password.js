@@ -3,15 +3,9 @@ import {Link} from 'react-router-dom';
 import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './forgot-password';
 import './reset-password.css';
 import axios from '../baseUrl';
-const Modal=require('./modal');
+import Modal from './modal';
 
 let submitMessage=`Change Password`;
-let modalMessage=`The passwords do not match !!`;
-
-let matchPassword=(resetPassword, confirmPassword)=>{
-
-    return confirmPassword!==resetPassword ? false:true;
-}
 
 class EnterNewPasswordForm extends React.Component{
 
@@ -67,8 +61,7 @@ class Changepassword extends React.Component{
         this.state={
             newPassword:'',
             confirmPassword:'',
-            validNewPassword:false,
-            validConfirmPassword:false,
+            blankField:true,
             passwordMatch:false, 
             modalIsOpen:false,
         }
@@ -85,12 +78,14 @@ class Changepassword extends React.Component{
         if(newPassword!==''){
             this.setState({
                 newPassword:newPassword,
-                passwordMatch:false
+                passwordMatch:false,
+                blankField:false
             })
         }else{
             this.setState({
                 newPassword:'',
-                passwordMatch:false
+                passwordMatch:false,
+                blankField:true
             });
         }
     }
@@ -100,7 +95,8 @@ class Changepassword extends React.Component{
 
             confirmPassword==this.state.newPassword?this.setState({
                 passwordMatch:true, 
-                confirmPassword:confirmPassword
+                confirmPassword:confirmPassword,
+                blankField:false
             }):
             this.setState({
                 passwordMatch:false, 
@@ -109,7 +105,7 @@ class Changepassword extends React.Component{
         }else{
             this.setState({
                 confirmPassword:'',
-                validConfirmPassword:false
+                blankField:true
             });
         }
     }
@@ -150,7 +146,26 @@ class Changepassword extends React.Component{
 
 
     submitForm=e=>{
+
         e.preventDefault();
+
+        let{passwordMatch, modalIsOpen}=this.state;
+
+        if(passwordMatch&&!modalIsOpen){
+            console.log("proceed");
+        }else{
+
+            let wrapper=this.modalWrapper.current;
+
+            let wrapperClass=wrapper.getAttribute('class');
+
+            wrapper.classList.remove(wrapperClass);
+            wrapper.classList.add('modal-show')
+      
+            this.setState({
+                modalIsOpen:!this.state.modalIsOpen
+            });
+        }
 
     }
 
@@ -171,6 +186,11 @@ class Changepassword extends React.Component{
                         </Contentsegment>
                     </Centeredsegment>
                     <Footnote/>
+                    {
+                        this.state.blankField?<Modal message={`Enter your passwords`} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+                        closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />:<Modal message={`Passwords do not match`} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+                        closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />
+                    }
                 </div>
             </React.Fragment>
         )

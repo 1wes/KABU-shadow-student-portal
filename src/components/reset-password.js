@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './forgot-password';
 import './reset-password.css';
+import axios from '../baseUrl'
 
 let submitMessage=`Change Password`;
 
@@ -92,7 +93,13 @@ class Changepassword extends React.Component{
 
         let match=matchPassword(this.state.newPassword, this.state.confirmPassword);
 
-        match?console.log(match): console.log('no match')
+        match? 
+
+        axios.post('/student/login/resetPassword', {newPassword:this.state.newPassword, confirmPassword:this.state.confirmPassword}).then(res=>{
+            console.log(res.data)
+        }).catch(err=>{
+            console.log(err)
+        }):console.log('no match')
     }
 
     render(){

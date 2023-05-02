@@ -5,6 +5,11 @@ import './reset-password.css';
 
 let submitMessage=`Change Password`;
 
+let matchPassword=(resetPassword, confirmPassword)=>{
+
+    return confirmPassword!==resetPassword ? false:true;
+}
+
 class EnterNewPasswordForm extends React.Component{
 
     constructor(props){
@@ -59,7 +64,6 @@ class Changepassword extends React.Component{
         this.state={
             newPassword:'',
             confirmPassword:'',
-            passwordMatch:false
         }
 
         this.handleNewPassword=this.handleNewPassword.bind(this);
@@ -86,6 +90,9 @@ class Changepassword extends React.Component{
     submitForm=e=>{
         e.preventDefault();
 
+        let match=matchPassword(this.state.newPassword, this.state.confirmPassword);
+
+        match?console.log(match): console.log('no match')
     }
 
     render(){

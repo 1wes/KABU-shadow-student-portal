@@ -2,9 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './forgot-password';
 import './reset-password.css';
-import axios from '../baseUrl'
+import axios from '../baseUrl';
+const Modal=require('./modal');
 
 let submitMessage=`Change Password`;
+let modalMessage=`The passwords do not match !!`;
 
 let matchPassword=(resetPassword, confirmPassword)=>{
 
@@ -40,7 +42,7 @@ class EnterNewPasswordForm extends React.Component{
                     </label>
 
                     <div className='new-password'>
-                        <input type='password' placeholder='Enter New Password' onChange={this.handleNewPassword}></input>
+                        <input type='password' placeholder='Enter New Password' onChange={this.handleNewPassword} required></input>
                     </div>
 
                     <label>
@@ -48,7 +50,7 @@ class EnterNewPasswordForm extends React.Component{
                     </label>
 
                     <div className='repeat-password'>
-                        <input type='password' placeholder='Repeat Your Password' onChange={this.handleRepeatPassword}></input>
+                        <input type='password' placeholder='Repeat Your Password' onChange={this.handleRepeatPassword} required></input>
                     </div>
                 </form>
             </React.Fragment>
@@ -65,44 +67,91 @@ class Changepassword extends React.Component{
         this.state={
             newPassword:'',
             confirmPassword:'',
-            passwordMatch:false
+            validNewPassword:false,
+            validConfirmPassword:false,
+            passwordMatch:false, 
+            modalIsOpen:false,
         }
 
         this.handleNewPassword=this.handleNewPassword.bind(this);
         this.handleRepeatPassword=this.handleRepeatPassword.bind(this);
         this.submitForm=this.submitForm.bind(this);
+        this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
+        this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
+        this.modalWrapper=React.createRef();
     }
 
     handleNewPassword=(newPassword)=>{
         if(newPassword!==''){
             this.setState({
-                newPassword:newPassword
+                newPassword:newPassword,
+                passwordMatch:false
             })
+        }else{
+            this.setState({
+                newPassword:'',
+                passwordMatch:false
+            });
         }
     }
 
     handleRepeatPassword=(confirmPassword)=>{
         if(confirmPassword!==''){
-            this.setState({
+
+            confirmPassword==this.state.newPassword?this.setState({
+                passwordMatch:true, 
                 confirmPassword:confirmPassword
+            }):
+            this.setState({
+                passwordMatch:false, 
+                confirmPassword:''
+            });
+        }else{
+            this.setState({
+                confirmPassword:'',
+                validConfirmPassword:false
+            });
+        }
+    }
+
+    closeOnClickingOnButton=e=>{
+
+        e.preventDefault();
+
+        if(this.state.modalIsOpen){
+            let wrapper=this.modalWrapper.current
+
+            let wrapperClass=wrapper.getAttribute('class');
+    
+            wrapper.classList.remove(wrapperClass);
+            wrapper.classList.add('modal-wrapper')
+
+            this.setState({
+                modalIsOpen:!this.state.modalIsOpen
             })
         }
     }
 
+    closeOnClickingOutsideModal=()=>{
+
+        let wrapper=this.modalWrapper.current
+
+        if(this.state.modalIsOpen){
+            let wrapperClass=wrapper.getAttribute('class');
+
+            wrapper.classList.remove(wrapperClass);
+            wrapper.classList.add('modal-wrapper')
+
+            this.setState({
+                modalIsOpen:!this.state.modalIsOpen
+            })
+        }
+    }
+
+
     submitForm=e=>{
         e.preventDefault();
 
-        let match=matchPassword(this.state.newPassword, this.state.confirmPassword);
-
-        match? 
-
-        axios.post('/student/login/resetPassword', {newPassword:this.state.newPassword, confirmPassword:this.state.confirmPassword}).then(res=>{
-            console.log(res.data)
-        }).catch(err=>{
-            console.log(err)
-        }):this.setState({
-            passwordMatch:this.state.passwordMatch
-        })
     }
 
     render(){

@@ -149,10 +149,14 @@ class Changepassword extends React.Component{
 
         e.preventDefault();
 
-        let{passwordMatch, modalIsOpen}=this.state;
+        let{newPassword, confirmPassword, passwordMatch, modalIsOpen}=this.state;
 
         if(passwordMatch&&!modalIsOpen){
-            console.log("proceed");
+            axios.post('/student/login/forgotPassword/resetPassword', {newPassword, confirmPassword}).then(res=>{
+                console.log(res.data)
+            }).catch(err=>{
+                console.log(err);
+            })
         }else{
 
             let wrapper=this.modalWrapper.current;

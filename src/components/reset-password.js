@@ -65,6 +65,7 @@ class Changepassword extends React.Component{
         this.state={
             newPassword:'',
             confirmPassword:'',
+            passwordMatch:false
         }
 
         this.handleNewPassword=this.handleNewPassword.bind(this);
@@ -99,7 +100,9 @@ class Changepassword extends React.Component{
             console.log(res.data)
         }).catch(err=>{
             console.log(err)
-        }):console.log('no match')
+        }):this.setState({
+            passwordMatch:this.state.passwordMatch
+        })
     }
 
     render(){

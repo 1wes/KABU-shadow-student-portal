@@ -6,7 +6,7 @@ const con=require('../database');
 const transporter=require('../utils/mailer');
 const {email, pwd_reset_link, security_key}=require('../env-config');
 const token=require('../utils/createResetToken');
-const encryptToken=require('../utils/hashResetToken')
+const encryptToken=require('../utils/resetTokenOps')
 
 app.use(tokenVerifier);
 

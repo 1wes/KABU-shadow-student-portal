@@ -3,7 +3,7 @@ const crypto=require('crypto')
 const {NODE_ENV,DB_HOST, DB_USER,DB_PASSWORD,DB_NAME,TOKEN_SECRET_KEY,EMAIL_SENDER,
     CLIENT_ID,CLIENT_SECRET,ACCESS_TOKEN,REFRESH_TOKEN,PASSWORD_RESET_LINK,ALGORITHM}=process.env;
 
-var {PORT, SECURITY_KEY}=process.env;
+var {PORT, SECURITY_KEY,IV}=process.env;
 
 switch(NODE_ENV){
 
@@ -11,7 +11,11 @@ switch(NODE_ENV){
 
         let securityKey=crypto.randomBytes(32);
 
+        let iv=crypto.randomBytes(16);
+
         SECURITY_KEY=securityKey;
+
+        IV=iv;
 
         PORT=5000;
 
@@ -41,5 +45,6 @@ module.exports={
     refresh_token:REFRESH_TOKEN,
     pwd_reset_link:PASSWORD_RESET_LINK,
     algorithm:ALGORITHM,
-    security_key:SECURITY_KEY
+    security_key:SECURITY_KEY,
+    iv:IV
 }

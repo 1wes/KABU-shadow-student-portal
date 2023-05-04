@@ -10,5 +10,7 @@ router.post('/login/forgotPassword/resetPassword', (req, res)=>{
     let user=userInfo[1].split('&')[0];
 
     let token=userInfo[2];
+
+    
 })
 module.exports=router;

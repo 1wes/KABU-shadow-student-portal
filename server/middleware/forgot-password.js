@@ -4,7 +4,7 @@ const router=express.Router();
 const tokenVerifier=require('./auth');
 const con=require('../database');
 const transporter=require('../utils/mailer');
-const {email, pwd_reset_link, security_key}=require('../env-config');
+const {email, pwd_reset_link}=require('../env-config');
 const token=require('../utils/createResetToken');
 const encryptToken=require('../utils/resetTokenOps')
 

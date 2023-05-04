@@ -9,10 +9,24 @@ let encryptToken=(token)=>{
 
     encryptedToken+=cipher.final('hex');
 
-    return (encryptedToken);
+    return encryptedToken;
 }
 
-module.exports=encryptToken;
+let decryptToken=(hashedToken)=>{
+
+    const decipher=crypto.createDecipheriv(algorithm, security_key, iv);
+
+    let decryptedToken=decipher.update(hashedToken, 'hex', 'utf-8');
+
+    decryptedToken+=decipher.final('utf-8');
+
+    return decryptedToken;
+}
+
+module.exports={
+    encryptToken,
+    decryptToken
+};
 
 
 

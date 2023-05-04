@@ -1,7 +1,7 @@
 require('dotenv').config();
 const crypto=require('crypto')
 const {NODE_ENV,DB_HOST, DB_USER,DB_PASSWORD,DB_NAME,TOKEN_SECRET_KEY,EMAIL_SENDER,
-    CLIENT_ID,CLIENT_SECRET,ACCESS_TOKEN,REFRESH_TOKEN,PASSWORD_RESET_LINK,ALGORITHM}=process.env;
+    CLIENT_ID,CLIENT_SECRET,ACCESS_TOKEN,REFRESH_TOKEN,PASSWORD_RESET_LINK,ALGORITHM, TOKEN_VALIDITY_DURATION}=process.env;
 
 var {PORT, SECURITY_KEY,IV}=process.env;
 
@@ -46,5 +46,6 @@ module.exports={
     pwd_reset_link:PASSWORD_RESET_LINK,
     algorithm:ALGORITHM,
     security_key:SECURITY_KEY,
-    iv:IV
+    iv:IV,
+    token_validity:TOKEN_VALIDITY_DURATION
 }

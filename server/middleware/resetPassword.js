@@ -1,5 +1,6 @@
 const express=require('express');
 const router=express.Router();
+const {decryptToken, encryptToken}=require('../utils/resetTokenOps');
 
 router.post('/login/forgotPassword/resetPassword', (req, res)=>{
 
@@ -11,6 +12,5 @@ router.post('/login/forgotPassword/resetPassword', (req, res)=>{
 
     let token=userInfo[2];
 
-    
 })
 module.exports=router;

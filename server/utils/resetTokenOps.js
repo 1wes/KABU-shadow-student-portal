@@ -18,14 +18,20 @@ let decryptToken=(hashedToken)=>{
 
     let decryptedToken=decipher.update(hashedToken, 'hex', 'utf-8');
 
-    decryptedToken+=decipher.final('utf-8');
+    decryptedToken+=decipher.final('utf8');
 
     return decryptedToken;
 }
 
+let matchToken=(plainToken, hashedToken)=>{
+
+    return plainToken==hashedToken?true:false
+}
+
 module.exports={
     encryptToken,
-    decryptToken
+    decryptToken,
+    matchToken
 };
 
 

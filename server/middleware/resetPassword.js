@@ -5,7 +5,7 @@ const {decryptToken, encryptToken}=require('../utils/resetTokenOps');
 const con=require('../database');
 const tokenVerifier=require('./auth');
 const { token_validity } = require('../env-config');
-const hashPassword=require('../utils/hashPassword');
+const {hashPassword}=require('../utils/passwordOps');
 
 app.use(tokenVerifier)
 
@@ -42,8 +42,17 @@ router.post('/login/forgotPassword/resetPassword', tokenVerifier, (req, res)=>{
 
                         const hashedPassword= await hashPassword(confirmPassword);
 
-                        console.log('hashed password:'+hashedPassword);
+                        let changePassword=`UPDATE students SET password='${hashedPassword}' where reg_no='${user}'`;
 
+                        con.query(changePassword, (err, result)=>{
+
+                            if(err){
+                                throw err;
+                            }
+
+                            res.send("Update successful");
+
+                        })
                     }  else{
                         res.sendStatus(403);
                     }

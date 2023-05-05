@@ -1,7 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const con=require('./database.js');
-const comparePassword=require('./utils/passwordOps.js');
+const {comparePassword}=require('./utils/passwordOps.js');
 const generateToken=require('./web-tokens/generateToken');
 
 router.post("/login", (req, res)=>{

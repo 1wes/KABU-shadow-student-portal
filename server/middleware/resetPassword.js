@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const router=express.Router();
-const {decryptToken, encryptToken}=require('../utils/resetTokenOps');
+const {decryptToken, matchToken}=require('../utils/resetTokenOps');
 const con=require('../database');
 const tokenVerifier=require('./auth');
 const { token_validity } = require('../env-config');
@@ -40,19 +40,30 @@ router.post('/login/forgotPassword/resetPassword', tokenVerifier, (req, res)=>{
 
                     if(timeDifference<token_validity){
 
-                        const hashedPassword= await hashPassword(confirmPassword);
+                        const hashedPassword= await hashPassword(confirmPassword); 
 
                         let changePassword=`UPDATE students SET password='${hashedPassword}' where reg_no='${user}'`;
 
-                        con.query(changePassword, (err, result)=>{
+                        let decryptedToken=decryptToken(result[0].enc_pwd_reset_token);
+ 
+                        let fullToken=`${token}+${result[0].pwd_reset_token_timestamp}`;
 
-                            if(err){
-                                throw err;
-                            }
+                        if(matchToken(fullToken, decryptedToken)){
 
-                            res.send("Update successful");
+                            con.query(changePassword, err=>{
 
-                        })
+                                if(err){
+                                    throw err;
+                                }
+    
+                                res.sendStatus(201);
+    
+                            });
+
+                        }else{
+                            res.status(403);
+                        }
+
                     }  else{
                         res.sendStatus(403);
                     }

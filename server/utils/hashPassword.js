@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+const bcrypt=require('bcrypt');
 
 let hashPassword=async(plain_password)=>{
 

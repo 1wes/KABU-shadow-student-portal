@@ -14,11 +14,23 @@ let tokenVerifier=(req, res, next)=>{
 
             next();
         }else{
-            statusCode=400;
 
-            next();
+            expiryLimit=3600000;
+
+            if(validToken.exp-validToken.iat>expiryLimit){
+
+                statusCode=401;
+
+                next();
+                
+            }else{
+
+                statusCode=403;
+
+                next();
+            }
+
         }
-
 
     }else{
         statusCode=500;  
@@ -27,5 +39,4 @@ let tokenVerifier=(req, res, next)=>{
     }
 
 }
-
 module.exports=tokenVerifier;

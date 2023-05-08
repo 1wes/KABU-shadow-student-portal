@@ -10,7 +10,10 @@ let tokenVerifier=(req, res, next)=>{
         const validToken=jwt.verify(authCookie, token_secret_key);
 
         if(validToken){
+            
             statusCode=200;
+
+            tokenInfo=validToken;
 
             next();
         }else{

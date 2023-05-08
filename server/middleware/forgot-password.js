@@ -78,15 +78,15 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
 
         case 401:
 
-            console.log(statusCode+"\n "+message);
+            res.sendStatus(statusCode);
 
             break;
 
         case 403:
 
-            console.log("Unauthorized");
+            res.sendStatus(statusCode);
 
             break;
     }
 }) 
-module.exports=router
+module.exports=router;

@@ -7,39 +7,41 @@ let tokenVerifier=(req, res, next)=>{
 
     if(authCookie){
 
-        const validToken=jwt.verify(authCookie, token_secret_key);
+        const isTokenValid=()=>{jwt.verify(authCookie, token_secret_key, (err,decoded)=>{
+            if(err){
+                errorInfo={
+                    statusCode:401,
+                    errorMessage:err.message
+                }
 
-        if(validToken){
-            
+                return new Error(errorInfo);
+            }
+
+            return decoded;
+        })};
+
+        const tokenIsValid=isTokenValid();
+
+        if(tokenIsValid){
+
             statusCode=200;
 
-            tokenInfo=validToken;
+            tokenInfo=tokenIsValid;
 
             next();
         }else{
 
-            expiryLimit=3600000;
+            statusCode=errorInfo.statusCode;
 
-            if(validToken.exp-validToken.iat>expiryLimit){
+            message=errorInfo.errorMessage;
 
-                statusCode=401;
-
-                next();
-                
-            }else{
-
-                statusCode=403;
-
-                next();
-            }
-
+            next();
         }
 
     }else{
-        statusCode=500;  
+        statusCode=403;  
 
         next();
     }
-
 }
 module.exports=tokenVerifier;

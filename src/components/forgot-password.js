@@ -1,6 +1,6 @@
 import React from 'react';
 import './forgot-password.css';
-import {Link, json} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Footnote from './footnote';
 import Modal from './modal';
 import axios from '../baseUrl';
@@ -178,6 +178,8 @@ class Resetpassword extends React.Component{
                     email:JSON.stringify(res.data)
                 })
 
+                alert(res.data);
+
                 let wrapperClass=wrapper.getAttribute('class');
 
                 wrapper.classList.remove(wrapperClass);
@@ -188,7 +190,7 @@ class Resetpassword extends React.Component{
                 })
 
             }).catch(err=>{
-                console.log(err)
+                console.log(err.response.status)
             })
 
         }else if(!valid&&!modalIsOpen){

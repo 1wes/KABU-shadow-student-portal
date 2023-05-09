@@ -178,8 +178,6 @@ class Resetpassword extends React.Component{
                     email:JSON.stringify(res.data)
                 })
 
-                alert(res.data);
-
                 let wrapperClass=wrapper.getAttribute('class');
 
                 wrapper.classList.remove(wrapperClass);

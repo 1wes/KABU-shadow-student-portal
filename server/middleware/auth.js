@@ -26,14 +26,12 @@ let tokenVerifier=(req, res, next)=>{
 
             statusCode=200;
 
-            tokenInfo=tokenIsValid;
-
             next();
         }else{
-
+            
             statusCode=errorInfo.statusCode;
 
-            message=errorInfo.errorMessage;
+            errorMessage=errorInfo.errorMessage;
 
             next();
         }

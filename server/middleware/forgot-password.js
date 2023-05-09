@@ -15,7 +15,6 @@ router.post("/forgotPassword", tokenVerifier, (req, res)=>{
     switch (statusCode){
 
         case 200:
-            console.log(tokenInfo);
         
             let {reg}=req.body;
 

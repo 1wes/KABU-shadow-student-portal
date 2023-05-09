@@ -11,70 +11,86 @@ app.use(tokenVerifier)
 
 router.post('/login/forgotPassword/resetPassword', tokenVerifier, (req, res)=>{
 
-    if(statusCode==200){
+    switch(statusCode){
 
-        let referringURL=req.headers.referer;
+        case 200:
 
-        let {confirmPassword}=req.body;
+            let referringURL=req.headers.referer;
 
-        let userInfo=referringURL.split('?')[1].split('=')
+            let {confirmPassword}=req.body;
 
-        let user=userInfo[1].split('&')[0];
+            let userInfo=referringURL.split('?')[1].split('=')
 
-        let token=userInfo[2];
+            let user=userInfo[1].split('&')[0];
 
-        let getTokeninfo=`SELECT * from students where pwd_reset_token='${token}'`;
+            let token=userInfo[2];
 
-        con.query(getTokeninfo, async(err, result)=>{
+            let getTokeninfo=`SELECT * from students where pwd_reset_token='${token}'`;
 
-            if(err){
-                throw err;
-            }
+            con.query(getTokeninfo, async(err, result)=>{
 
-            if(result){
+                if(err){
+                    throw err;
+                }
 
-                // match the token with the retrieved reg number;
-                if(result[0].reg_no==user){
+                if(result){
 
-                    let timeDifference=Date.now()-result[0].pwd_reset_token_timestamp;
+                    // match the token with the retrieved reg number;
+                    if(result[0].reg_no==user){
 
-                    if(timeDifference<token_validity){
+                        let timeDifference=Date.now()-result[0].pwd_reset_token_timestamp;
 
-                        const hashedPassword= await hashPassword(confirmPassword); 
+                        if(timeDifference<token_validity){
 
-                        let changePassword=`UPDATE students SET password='${hashedPassword}' where reg_no='${user}'`;
+                            const hashedPassword= await hashPassword(confirmPassword); 
 
-                        let decryptedToken=decryptToken(result[0].enc_pwd_reset_token);
+                            let changePassword=`UPDATE students SET password='${hashedPassword}' where reg_no='${user}'`;
+
+                            let decryptedToken=decryptToken(result[0].enc_pwd_reset_token);
  
-                        let fullToken=`${token}+${result[0].pwd_reset_token_timestamp}`;
+                            let fullToken=`${token}+${result[0].pwd_reset_token_timestamp}`;
 
-                        if(matchToken(fullToken, decryptedToken)){
+                            if(matchToken(fullToken, decryptedToken)){
 
-                            con.query(changePassword, err=>{
+                                con.query(changePassword, err=>{
 
-                                if(err){
-                                    throw err;
-                                }
+                                    if(err){
+                                        throw err;
+                                    }
     
-                                res.sendStatus(201);
+                                    res.sendStatus(201);
     
-                            });
+                                });
+
+                            }else{
+                                res.status(403);
+                            }
 
                         }else{
-                            res.status(403);
+                            res.sendStatus(403);
                         }
-
-                    }  else{
-                        res.sendStatus(403);
-                    }
                     
+                    }else{
+                        res.sendStatus(403); 
+                    }
                 }else{
-                    res.sendStatus(403); 
+                    res.sendStatus(404);
                 }
-            }else{
-                res.sendStatus(404);
-            }
-        })
-    }
-})
+            })
+
+            break;
+
+        case 401:
+
+            res.sendStatus(statusCode);
+
+            break;
+
+        case 403:
+
+            res.sendStatus(statusCode);
+
+            break;
+        }
+    })
 module.exports=router;

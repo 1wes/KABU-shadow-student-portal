@@ -7,7 +7,7 @@ let tokenVerifier=(req, res, next)=>{
 
     if(authCookie){
 
-        const isTokenValid=()=>{jwt.verify(authCookie, token_secret_key, (err,decoded)=>{
+        const isTokenValid=()=>{return tokens=jwt.verify(authCookie, token_secret_key, (err,decoded)=>{
             if(err){
                 errorInfo={
                     statusCode:401,
@@ -17,7 +17,7 @@ let tokenVerifier=(req, res, next)=>{
                 return new Error(errorInfo);
             }
 
-            return decoded;
+             return decoded
         })};
 
         const tokenIsValid=isTokenValid();
@@ -28,15 +28,15 @@ let tokenVerifier=(req, res, next)=>{
 
             next();
         }else{
-            
+
             statusCode=errorInfo.statusCode;
 
             errorMessage=errorInfo.errorMessage;
 
             next();
         }
-
     }else{
+
         statusCode=403;  
 
         next();

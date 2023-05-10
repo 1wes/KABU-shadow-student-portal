@@ -183,7 +183,7 @@ class App extends React.Component{
 
     // post the data to the backend
     axios.post("/student/login", userDetails).then(res=>{
-      alert(res.status);
+      window.location.href='/student/dashboard';
     }).catch(err=>{
       alert(err.response.status)
       // clear the state after submitting the details

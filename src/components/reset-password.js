@@ -153,6 +153,7 @@ class Changepassword extends React.Component{
 
         if(passwordMatch&&!modalIsOpen){
             axios.post('/student/login/forgotPassword/resetPassword', {newPassword, confirmPassword}).then(res=>{
+                
                 console.log(res.data)
             }).catch(err=>{
                 console.log(err);

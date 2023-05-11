@@ -92,6 +92,7 @@ class App extends React.Component{
       validReg:false,
       validPassword:false,
       modalIsOpen:false,
+      login:false
     }
 
     this.submitForm=this.submitForm.bind(this);
@@ -100,10 +101,6 @@ class App extends React.Component{
     this.modalWrapper=React.createRef();
     this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
     this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
-  }
-
-  saySomething=(something)=>{
-    console.log(something)
   }
 
   handleRegChange=(newRegNo)=>{
@@ -185,8 +182,21 @@ class App extends React.Component{
     axios.post("/student/login", userDetails).then(res=>{
       window.location.href='/student/dashboard';
     }).catch(err=>{
-      alert(err.response.status)
-      // clear the state after submitting the details
+      // console.log(err.reponse.data)
+
+      let wrapper=this.modalWrapper.current;
+
+      let wrapperClass=wrapper.getAttribute('class');
+      this.setState({
+        reg_no:'',
+        password:''
+      })
+      wrapper.classList.remove(wrapperClass);
+      wrapper.classList.add('modal-show')
+
+      this.setState({
+          modalIsOpen:!this.state.modalIsOpen
+      });
     })}else{
 
       let wrapper=this.modalWrapper.current;
@@ -234,7 +244,7 @@ class App extends React.Component{
           </Centeredsegment>
           <Footnote/>
           <Modal message={warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
-          closeOnClickingOutsideModal={this.closeOnClickingOutsideModal} />
+          closeOnClickingOutsideModal={this.closeOnClickingOutsideModal}/>
         </div>
         
       </React.Fragment>

@@ -92,7 +92,7 @@ class App extends React.Component{
       validReg:false,
       validPassword:false,
       modalIsOpen:false,
-      login:false
+      login:''
     }
 
     this.submitForm=this.submitForm.bind(this);
@@ -178,26 +178,32 @@ class App extends React.Component{
         password:password
       }
 
-    // post the data to the backend
     axios.post("/student/login", userDetails).then(res=>{
       window.location.href='/student/dashboard';
     }).catch(err=>{
-      // console.log(err.reponse.data)
 
-      let wrapper=this.modalWrapper.current;
-
-      let wrapperClass=wrapper.getAttribute('class');
       this.setState({
-        reg_no:'',
-        password:''
+        login:false
       })
-      wrapper.classList.remove(wrapperClass);
-      wrapper.classList.add('modal-show')
 
-      this.setState({
-          modalIsOpen:!this.state.modalIsOpen
-      });
-    })}else{
+      this.delayModalDisplay=setTimeout(()=>{
+
+         let wrapper=this.modalWrapper.current;
+
+         let wrapperClass=wrapper.getAttribute('class');
+
+         wrapper.classList.remove(wrapperClass);
+         wrapper.classList.add('modal-show')
+
+         this.setState({
+           modalIsOpen:!this.state.modalIsOpen
+         });
+        },1)
+        
+      })
+
+
+    }else{
 
       let wrapper=this.modalWrapper.current;
 
@@ -213,6 +219,10 @@ class App extends React.Component{
           modalIsOpen:!this.state.modalIsOpen
       })
     }
+  }
+
+  componentWillUnmount(){
+    clearTimeout(this.delayModalDisplay);
   }
 
   render(){

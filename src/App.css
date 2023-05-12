@@ -47,11 +47,23 @@
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.password{
+  position: relative;
+}
+
+.password i {
+  position: absolute;
+  right: 0;
+  color: gray;
+  top: 13px;
+  padding: 0 15px 0 15px;
+  border-left: 1px solid grey;
+  line-height: 36.5px;
+}
+
 .remember-me{
   display: flex;
   flex-direction: row;
-  /* width: 100%; */
-  /* text-align: left; */
   justify-content: flex-start;
   margin-bottom:0 !important ;
   padding-bottom: 0 !important;
@@ -84,198 +96,3 @@ input[type=checkbox]{
 .password-reset-link{
   margin: -1px 0 0 0;
 }
-
-/* h3{
-  text-align: center;
-}
-
-.login{
-  margin: 0 auto !important;
-  width: 30em;  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.login-form{
-  color: whitesmoke;
-  width: 80%;
-}
-
-.login-details{
-  border-radius: 10px;
-  width: 100%;
-}
-
-.password-visibility{
-  display: flex;
-  flex-direction: row;
-  text-align: left;
-  margin-top: 5px;
-}
-
-.password-visibility input{
-  text-align: right;
-  width: 15px;
-
-}
-
-.password-visibility label{
-  font-size: 15px;
-  margin-top: 1px;
-}
-
-.logo{
-  display: flex;
-  justify-content: center;
-}
-
-
-img{
-  height: auto;
-  width: 100%;
-  max-width: 30%;
-  color: white;
-}
-
-form{
-  max-width:100%;
-}
-
-input{
-  display: block;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  border: none;
-  font-size: 15px;
-}
-
-input:focus{
-  border: none;
-}
-
-input::placeholder{
-  font-size: 12px;
-}
-
-/* input[type='password']:not(:placeholder-shown){
-  font-family: verdana;
-} */
-/* 
-.forgot-password{
-  font-size: 10px;
-  color: white;
-  text-decoration: underline;
-}
-
-#forgot-password-link{
-  color: white;
-  cursor: pointer;
-}
-
-.forgot-password Link{
-  color: white;
-}
-
-
-h2{
-  padding: 2px 0 0 0;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.submit-button{
-  display: flex;
-  justify-content: center;
-}
-
-button{
-  display: flex;
-  padding: 10px;
-  background-color: rgb(70, 216, 70);
-  border-radius: 50px;
-  border: none;
-  color: black;
-  margin-top: 20px;
-  transition: padding 1s;
-  width: 50%;
-  justify-content: center;
-  font-weight: bold;
-}
-
-button:hover{
-  cursor: pointer;
-} */ 
-
-/* @media only screen and (max-width:760px){ */
-
-  /* .login{
-    height: 100vh;
-    margin: 0 auto !important;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .login-form{
-    width: 80%;
-    /* background-color: red; */
-  /* } */
-
-  /* .login-details{
-    border-radius: 10px;
-    width: 100%;
-    /* background-color: yellow; */
-  /* } */
-
-  /* .logo{
-    display: flex;
-    justify-content: center;
-  }
-
-  img{
-    height: auto;
-    width: 100%;
-    max-width: 50%;
-  } */
-
-  /* form{
-    max-width:100%;
-  } */
-
-  /* input{
-    display: block;
-    padding: 15px;
-    width: 93%;
-    border-radius: 5px;
-    border: none;
-    font-size: 15px;
-  }
-
-  input:focus{
-    font-size: 18px;
-  }
-
-  input::placeholder{
-    font-size: 16px;
-  }  */
-  
-  /* button{
-    font-size: 20px;
-  }
-
-  .forgot-password{
-    font-size: 15px;
-  }
-
-  label{
-    font-size: 20px;
-  }
-
-  h3{
-    font-size: 22px;
-  }  */

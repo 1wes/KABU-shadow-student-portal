@@ -179,7 +179,14 @@ class App extends React.Component{
       }
 
     axios.post("/student/login", userDetails).then(res=>{
-      window.location.href='/student/dashboard';
+
+      this.setState({
+        login:true
+      })
+
+      this.delayLogin=setTimeout(()=>{
+        window.location.href='/student/dashboard';
+      },1);
     }).catch(err=>{
 
       this.setState({
@@ -199,7 +206,7 @@ class App extends React.Component{
            modalIsOpen:!this.state.modalIsOpen
          });
         },1)
-        
+
       })
 
 
@@ -222,7 +229,7 @@ class App extends React.Component{
   }
 
   componentWillUnmount(){
-    clearTimeout(this.delayModalDisplay);
+    clearTimeout(this.delayLogin,this.delayModalDisplay);
   }
 
   render(){

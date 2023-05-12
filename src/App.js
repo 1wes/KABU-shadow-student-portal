@@ -23,6 +23,7 @@ class Loginform extends React.Component{
 
     this.handleRegChange=this.handleRegChange.bind(this);
     this.handlePasswordChange=this.handlePasswordChange.bind(this);
+    this.togglePasswordVisibility=this.togglePasswordVisibility.bind(this);
   }
 
   handleRegChange=(event)=>{
@@ -31,6 +32,10 @@ class Loginform extends React.Component{
 
   handlePasswordChange=(event)=>{
     this.props.handlePasswordChange(event.target.value);
+  }
+
+  togglePasswordVisibility=()=>{
+    this.props.togglePasswordVisibility();
   }
 
   render(){
@@ -56,7 +61,7 @@ class Loginform extends React.Component{
           <div className='password'>
               <input type="password"  id='show-password' placeholder='Password' value={this.props.password} onChange={this.handlePasswordChange} required>
               </input>
-              <i className='eye-icon'>
+              <i className='eye-icon' onClick={this.togglePasswordVisibility}>
                 <FontAwesomeIcon icon={faEye} />
               </i>
           </div>
@@ -106,6 +111,7 @@ class App extends React.Component{
     this.modalWrapper=React.createRef();
     this.closeOnClickingOnButton=this.closeOnClickingOnButton.bind(this);
     this.closeOnClickingOutsideModal=this.closeOnClickingOutsideModal.bind(this);
+    this.togglePasswordVisibility=this.togglePasswordVisibility.bind(this);
   }
 
   handleRegChange=(newRegNo)=>{
@@ -167,6 +173,17 @@ class App extends React.Component{
       this.setState({
           modalIsOpen:!this.state.modalIsOpen
       })
+    }
+  }
+
+  togglePasswordVisibility=()=>{
+
+    let passwordElement=document.getElementById('show-password');
+
+    if(passwordElement.type==='password'){
+      passwordElement.type='text';
+    }else{
+      passwordElement.type='password';
     }
   }
 
@@ -254,7 +271,7 @@ class App extends React.Component{
               <hr/>
 
               <Login>
-                <Loginform handlePasswordChange={this.handlePasswordChange} handleRegChange={this.handleRegChange} />
+                <Loginform handlePasswordChange={this.handlePasswordChange} handleRegChange={this.handleRegChange} togglePasswordVisibility={this.togglePasswordVisibility} />
               </Login>
 
               <div className='sub-btn-div'>

@@ -62,7 +62,7 @@ class Loginform extends React.Component{
               <input type="password"  id='show-password' placeholder='Password' value={this.props.password} onChange={this.handlePasswordChange} required>
               </input>
               <i className='eye-icon' onClick={this.togglePasswordVisibility}>
-                <FontAwesomeIcon icon={faEye} />
+                <FontAwesomeIcon icon={this.props.icon} />
               </i>
           </div>
 
@@ -102,7 +102,8 @@ class App extends React.Component{
       validReg:false,
       validPassword:false,
       modalIsOpen:false,
-      loginMessage:''
+      loginMessage:'',
+      passwordVisible:false
     }
 
     this.submitForm=this.submitForm.bind(this);
@@ -182,8 +183,16 @@ class App extends React.Component{
 
     if(passwordElement.type==='password'){
       passwordElement.type='text';
+
+      this.setState({
+        passwordVisible:!this.state.passwordVisible
+      })
     }else{
       passwordElement.type='password';
+
+      this.setState({
+        passwordVisible:!this.state.passwordVisible
+      })
     }
   }
 
@@ -271,7 +280,10 @@ class App extends React.Component{
               <hr/>
 
               <Login>
-                <Loginform handlePasswordChange={this.handlePasswordChange} handleRegChange={this.handleRegChange} togglePasswordVisibility={this.togglePasswordVisibility} />
+                {
+                  this.state.passwordVisible?<Loginform icon={faEyeSlash} handlePasswordChange={this.handlePasswordChange} handleRegChange={this.handleRegChange} togglePasswordVisibility={this.togglePasswordVisibility} />:
+                  <Loginform icon={faEye} handlePasswordChange={this.handlePasswordChange} handleRegChange={this.handleRegChange} togglePasswordVisibility={this.togglePasswordVisibility} />
+                }
               </Login>
 
               <div className='sub-btn-div'>

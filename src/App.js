@@ -52,8 +52,6 @@ class Loginform extends React.Component{
               </input>
           </div>
 
-
-
           <label>
             Password
           </label>

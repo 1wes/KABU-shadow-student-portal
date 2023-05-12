@@ -42,9 +42,11 @@ class Modal extends React.Component{
                                 <div className='warning-message'>
                                     {this.props.message}
                                 </div>
-                                <button type='button ' className='generic-close-button' onClick={this.closeOnClickingOnButton}>
-                                    ok
-                                </button>
+                                <div className='modal-ok-button'>
+                                    <button type='button ' className='generic-close-button' onClick={this.closeOnClickingOnButton}>
+                                        ok
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

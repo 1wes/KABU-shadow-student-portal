@@ -8,7 +8,6 @@
 
 .warning-message{
     text-align: center;
-    max-width: 80%;
 }
 
 .modal{
@@ -41,8 +40,9 @@
     animation-duration: .4s; 
 }
 
-.generic-close-button{
-    max-width: 11%;
+.modal-ok-button{
+    width: 12em;
+    text-align: center;
 }
 
 @keyframes bounce {

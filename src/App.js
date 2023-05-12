@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import axios from './baseUrl';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './components/forgot-password';
 import Modal from './components/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -101,7 +101,8 @@ class App extends React.Component{
       validPassword:false,
       modalIsOpen:false,
       loginMessage:'',
-      passwordVisible:false
+      passwordVisible:false,
+      login:false
     }
 
     this.submitForm=this.submitForm.bind(this);
@@ -210,12 +211,8 @@ class App extends React.Component{
     axios.post("/student/login", userDetails).then(res=>{
 
       this.setState({
-        loginMessage:''
+        login:true
       })
-
-      this.delayLogin=setTimeout(()=>{
-        window.location.href='/student/dashboard';
-      },1);
       
     }).catch(err=>{
 
@@ -259,17 +256,20 @@ class App extends React.Component{
   }
 
   componentWillUnmount(){
-    clearTimeout(this.delayLogin,this.delayModalDisplay);
+    clearTimeout(this.delayModalDisplay);
   }
 
   render(){
 
     let buttonMessgae='Log In';
     let warningMessage='Enter registration number'
+    let {login}=this.state
 
     return(
-
       <React.Fragment>
+        {login && (
+          <Navigate to="/student/dashboard"/>
+        )}
 
         <div id='main-container'>
           <Centeredsegment>

@@ -92,7 +92,7 @@ class App extends React.Component{
       validReg:false,
       validPassword:false,
       modalIsOpen:false,
-      login:''
+      loginMessage:''
     }
 
     this.submitForm=this.submitForm.bind(this);
@@ -181,16 +181,17 @@ class App extends React.Component{
     axios.post("/student/login", userDetails).then(res=>{
 
       this.setState({
-        login:true
+        loginMessage:''
       })
 
       this.delayLogin=setTimeout(()=>{
         window.location.href='/student/dashboard';
       },1);
+      
     }).catch(err=>{
 
       this.setState({
-        login:false
+        loginMessage:`Either username or password is wrong. If forgotten your password, then reset`
       })
 
       this.delayModalDisplay=setTimeout(()=>{
@@ -260,8 +261,11 @@ class App extends React.Component{
             </Contentsegment>
           </Centeredsegment>
           <Footnote/>
-          <Modal message={warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
-          closeOnClickingOutsideModal={this.closeOnClickingOutsideModal}/>
+          {
+            this.state.loginMessage!==''?<Modal message={this.state.loginMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+            closeOnClickingOutsideModal={this.closeOnClickingOutsideModal}/>:<Modal message={warningMessage} ref={this.modalWrapper} closeOnClickingOnButton={this.closeOnClickingOnButton} 
+            closeOnClickingOutsideModal={this.closeOnClickingOutsideModal}/>
+          }
         </div>
         
       </React.Fragment>

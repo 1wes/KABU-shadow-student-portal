@@ -4,6 +4,8 @@ import axios from './baseUrl';
 import {Link} from 'react-router-dom';
 import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './components/forgot-password';
 import Modal from './components/modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye,faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 
 function Login(props){
 
@@ -54,6 +56,9 @@ class Loginform extends React.Component{
           <div className='password'>
               <input type="password"  id='show-password' placeholder='Password' value={this.props.password} onChange={this.handlePasswordChange} required>
               </input>
+              <i className='eye-icon'>
+                <FontAwesomeIcon icon={faEye} />
+              </i>
           </div>
 
           <div className='remember-me'>

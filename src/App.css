@@ -25,9 +25,12 @@
   margin-bottom:10em;
 }
 
+.reg-no input{
+  text-transform: uppercase;
+}
+
 .login-form input{
   border: none;
-  text-transform: uppercase;
   border: none;
   padding: 11px;
   border-radius: 5px;

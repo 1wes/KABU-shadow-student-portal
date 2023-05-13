@@ -12,7 +12,7 @@ class Header extends React.Component{
 
         return(
             <React.Fragment>
-                <div className='page-header'>
+                <div className={this.props.className}>
                     {this.props.children}
                 </div>
             </React.Fragment>
@@ -30,7 +30,7 @@ class SidebarArea extends React.Component{
 
         return(
             <React.Fragment>
-                <div className='sidebar'>
+                <div className={this.props.className}>
                     {this.props.children}
                 </div>
             </React.Fragment>
@@ -49,7 +49,26 @@ class ContentArea extends React.Component{
 
         return(
             <React.Fragment>
-                <div className='content-area'>
+                <div className={this.props.className}>
+                    {this.props.children}
+                </div>
+            </React.Fragment>
+        )
+    }
+}
+
+class Wrapper extends React.Component{
+
+    constructor(props){
+        
+        super(props);
+    }
+
+    render(){
+
+        return(
+            <React.Fragment>
+                <div className={this.props.className}>
                     {this.props.children}
                 </div>
             </React.Fragment>
@@ -67,19 +86,15 @@ class Mainlayout extends React.Component{
 
         return(
             <React.Fragment>
-                <Header>
-                    Am the header
-                </Header>
-
-                <div className='section-separation'>
-                    {this.props.children}
-                </div>
+                {this.props.children}
             </React.Fragment>
         )
     }
 }
 
 export{
+    Header,
+    Wrapper,
     SidebarArea,
     ContentArea
 }

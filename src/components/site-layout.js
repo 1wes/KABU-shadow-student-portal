@@ -20,7 +20,7 @@ class Header extends React.Component{
     }
 }
 
-class Sidebar extends React.Component{
+class SidebarArea extends React.Component{
 
     constructor(props){
         super(props)
@@ -38,7 +38,7 @@ class Sidebar extends React.Component{
     }
 }
 
-class Contentarea extends React.Component{
+class ContentArea extends React.Component{
 
     constructor(props){
 
@@ -80,8 +80,8 @@ class Mainlayout extends React.Component{
 }
 
 export{
-    Sidebar,
-    Contentarea
+    SidebarArea,
+    ContentArea
 }
 
 export default Mainlayout

@@ -1,5 +1,6 @@
 import React from 'react';
 import Mainlayout, { Header, Wrapper, ContentArea, SidebarArea } from './site-layout';
+import Navbar from './navbar';
 
 class Dashboard extends React.Component{
 
@@ -14,7 +15,7 @@ class Dashboard extends React.Component{
             <React.Fragment>
                 <Mainlayout>
                     <Header className='page-header'>
-                        Am the header
+                        <Navbar/>
                     </Header>
 
                     <Wrapper className='section-separation'>

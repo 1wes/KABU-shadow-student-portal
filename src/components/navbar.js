@@ -10,6 +10,16 @@ class Navbar extends React.Component{
     constructor(props){
 
         super(props);
+
+        this.collapseSidebar=this.collapseSidebar.bind(this);
+        this.collapseNav=React.createRef();
+    }
+
+    collapseSidebar=()=>{
+        let collapsableNav=this.collapseNav.current;
+
+        
+
     }
 
     render(){
@@ -17,16 +27,16 @@ class Navbar extends React.Component{
         return(
             <React.Fragment>
                 <nav>
-                    <div className='collapsable-nav'>
+                    <div className='collapsable-nav' ref={this.collapseNav}>
                         <Link to={'#'}>
                             <img src={require('../kaba-name.png')} />
                         </Link>
                     </div>
 
-                    <div className='navbar-menu'>
+                    <div className='navbar-menu' id='nav-menu' >
                         <div className='navbar-menu-content'>
                             <div className='hamburger-menu'>
-                                <FontAwesomeIcon icon={faBars} className='fa-bars' />
+                                <FontAwesomeIcon icon={faBars} className='fa-bars' onClick={this.collapseSidebar} />
                             </div>
 
                             <div className='search-bar-and-profile'>

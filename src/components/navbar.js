@@ -2,7 +2,7 @@ import React from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 class Navbar extends React.Component{
@@ -39,7 +39,19 @@ class Navbar extends React.Component{
                                 </div>
 
                                 <div className='profile'>
-                                    profile
+                                    <div className='profile-picture'>
+                                        <img src={require('../profile.png')} />
+                                    </div>
+
+                                    <span className='username'>
+                                        ongera wesley okemwa
+                                    </span>
+
+                                    <span className='profile-menu-dropdown-icon'>
+                                        <i>
+                                            <FontAwesomeIcon icon={faChevronDown} />
+                                        </i>
+                                    </span>
                                 </div>
                             </div>
                         </div>

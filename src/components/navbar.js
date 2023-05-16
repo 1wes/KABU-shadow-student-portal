@@ -29,7 +29,7 @@ class Navbar extends React.Component{
                 <nav>
                     <div className='collapsable-nav' ref={this.collapseNav}>
                         <Link to={'#'}>
-                            <img src={require('../kaba-name.png')} />
+                            <img src={require('../kaba-name.png')} alt='Kabarak Logo' />
                         </Link>
                     </div>
 
@@ -50,7 +50,7 @@ class Navbar extends React.Component{
 
                                 <div className='profile'>
                                     <div className='profile-picture'>
-                                        <img src={require('../profile.png')} />
+                                        <img src={require('../profile.png')} alt='Person Avatar' />
                                     </div>
 
                                     <span className='username'>

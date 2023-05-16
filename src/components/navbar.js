@@ -54,7 +54,7 @@ class Navbar extends React.Component{
                                     </div>
 
                                     <span className='username'>
-                                        ongera wesley okemwa
+                                        {this.props.loggedInUser}
                                     </span>
 
                                     <span className='profile-menu-dropdown-icon'>

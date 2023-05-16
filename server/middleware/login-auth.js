@@ -1,6 +1,7 @@
 const tokenVerifier= require("./auth");
 const express=require('express');
 const router=express();
+const con=require('../database');
 
 router.get('/loginAuth', tokenVerifier, (req, res)=>{
 
@@ -8,7 +9,22 @@ router.get('/loginAuth', tokenVerifier, (req, res)=>{
 
         case 200:
 
-            res.send(tokenInfo.reg_no);
+            let getUsername=`SELECT * FROM students WHERE reg_no=?`;
+            
+            con.query(getUsername, tokenInfo.reg_no.reg_no, (err, result)=>{
+
+                if(err){
+
+                    console.log(err);
+                }
+
+                let UserInfo={
+                    reg_no:tokenInfo.reg_no.reg_no,
+                    username:`${result[0].surname} ${result[0].first_name} ${result[0].last_name}`
+                }
+
+                res.send(UserInfo)
+            })
 
             break;
         

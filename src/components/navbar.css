@@ -51,6 +51,7 @@ nav{
     justify-content: flex-end;
     padding: 0 20px 0 20px;
     align-items: center;
+    cursor: pointer;
 }
 
 .search-bar{

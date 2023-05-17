@@ -2,7 +2,7 @@ import React from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faChevronDown, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightFromBracket, faBars, faChevronDown, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 class Navbar extends React.Component{
@@ -62,6 +62,24 @@ class Navbar extends React.Component{
                                             <FontAwesomeIcon icon={faChevronDown} />
                                         </i>
                                     </span>
+
+                                    <div className='profile-dropdown'>
+                                        <div className='profile-dropdown-content'>
+                                            <li className='profile-link'>
+                                                <i>
+                                                    <FontAwesomeIcon icon={faUser} />
+                                                </i>
+
+                                                <span>Profile</span>
+                                            </li>
+                                            <li className='logout-link'>
+                                                <i>
+                                                    <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                                                </i>
+                                                <span>Logout</span>
+                                            </li>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

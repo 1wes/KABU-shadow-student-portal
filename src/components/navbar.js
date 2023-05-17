@@ -4,6 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faBars, faChevronDown, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from '../baseUrl';
+import checkToken from '../utils/checkCookie';
 
 class Navbar extends React.Component{
 
@@ -34,6 +35,19 @@ class Navbar extends React.Component{
 
     }
 
+    componentDidMount=async()=>{
+
+        await checkToken().then(res=>{
+            this.setState({
+                logout:false
+            })
+        }).catch(err=>{
+            this.setState({
+                logout:true
+            })
+        })
+    }
+
     logoutUser=()=>{
         axios.get('/student/logout', {withCredentials:true}).then(res=>{
             if(res.data=='OK'){
@@ -54,11 +68,8 @@ class Navbar extends React.Component{
 
         return(
             <React.Fragment>
-
                 {
-                    logout &&(
-                        <Navigate to={'/'} />
-                    )
+                    logout &&(<Navigate to={'/'} />)
                 }
 
                 <nav>

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} from './forgot-password';
 import './reset-password.css';
 import axios from '../baseUrl';

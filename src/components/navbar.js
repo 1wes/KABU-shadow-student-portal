@@ -3,7 +3,7 @@ import './navbar.css';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faBars, faChevronDown, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
-
+import axios from '../baseUrl';
 
 class Navbar extends React.Component{
 
@@ -13,13 +13,19 @@ class Navbar extends React.Component{
 
         this.collapseSidebar=this.collapseSidebar.bind(this);
         this.collapseNav=React.createRef();
+        this.logoutUser=this.logoutUser.bind(this);
     }
 
     collapseSidebar=()=>{
         let collapsableNav=this.collapseNav.current;
+    }
 
-        
-
+    logoutUser=()=>{
+        axios.get('/student/logout').then(res=>{
+            console.log(res.data)
+        }).catch(err=>{
+            console.log(err)
+        })
     }
 
     render(){
@@ -72,7 +78,7 @@ class Navbar extends React.Component{
 
                                                 <span>Profile</span>
                                             </li>
-                                            <li className='logout-link'>
+                                            <li className='logout-link' onClick={this.logoutUser}>
                                                 <i>
                                                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
                                                 </i>

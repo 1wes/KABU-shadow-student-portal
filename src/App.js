@@ -6,6 +6,7 @@ import {Centeredsegment, Contentsegment, Logobanner, SubmitButton, Footnote} fro
 import Modal from './components/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye,faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import checkToken from './utils/checkCookie';
 
 function Login(props){
 
@@ -253,6 +254,20 @@ class App extends React.Component{
           modalIsOpen:!this.state.modalIsOpen
       })
     }
+  }
+
+  componentDidMount=async()=>{
+    
+    await checkToken().then(res=>{
+      this.setState({
+        login:true
+      })
+    }).catch(err=>{
+      this.setState({
+        login:false
+      })
+    })
+
   }
 
   componentWillUnmount(){

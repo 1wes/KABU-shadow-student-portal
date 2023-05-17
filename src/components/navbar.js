@@ -17,11 +17,21 @@ class Navbar extends React.Component{
 
         this.collapseSidebar=this.collapseSidebar.bind(this);
         this.collapseNav=React.createRef();
+        this.profileDropdown=React.createRef();
+        this.toggleProfileDropdown=this.toggleProfileDropdown.bind(this);
         this.logoutUser=this.logoutUser.bind(this);
     }
 
     collapseSidebar=()=>{
         let collapsableNav=this.collapseNav.current;
+    }
+
+    toggleProfileDropdown=()=>{
+
+        let profileDropdownMenu=this.profileDropdown.current;
+
+        profileDropdownMenu.classList.toggle('show-profile-dropdown');
+
     }
 
     logoutUser=()=>{
@@ -73,7 +83,7 @@ class Navbar extends React.Component{
                                     </i>
                                 </div>
 
-                                <div className='profile'>
+                                <div className='profile' onClick={this.toggleProfileDropdown}>
                                     <div className='profile-picture'>
                                         <img src={require('../profile.png')} alt='Person Avatar' />
                                     </div>
@@ -88,7 +98,7 @@ class Navbar extends React.Component{
                                         </i>
                                     </span>
 
-                                    <div className='profile-dropdown'>
+                                    <div className='profile-dropdown' ref={this.profileDropdown} >
                                         <div className='profile-dropdown-content'>
                                             <li className='profile-link'>
                                                 <i>

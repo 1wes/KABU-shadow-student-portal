@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbar.css';
-import {Link} from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faBars, faChevronDown, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from '../baseUrl';
@@ -10,6 +10,10 @@ class Navbar extends React.Component{
     constructor(props){
 
         super(props);
+
+        this.state={
+            logout:false
+        }
 
         this.collapseSidebar=this.collapseSidebar.bind(this);
         this.collapseNav=React.createRef();
@@ -21,17 +25,32 @@ class Navbar extends React.Component{
     }
 
     logoutUser=()=>{
-        axios.get('/student/logout').then(res=>{
-            console.log(res.data)
+        axios.get('/student/logout', {withCredentials:true}).then(res=>{
+            if(res.data=='OK'){
+                this.setState({
+                    logout:true
+                })
+            }
         }).catch(err=>{
-            console.log(err)
+            this.setState({
+                logout:true
+            })
         })
     }
 
     render(){
 
+        let {logout}=this.state;
+
         return(
             <React.Fragment>
+
+                {
+                    logout &&(
+                        <Navigate to={'/'} />
+                    )
+                }
+
                 <nav>
                     <div className='collapsable-nav' ref={this.collapseNav}>
                         <Link to={'#'}>

@@ -1,12 +1,7 @@
 import React from 'react';
 import './site-layout.css'
 
-class Header extends React.Component{
-
-    constructor(props){
-
-        super(props);
-    }
+class Header extends React.Component{   
 
     render(){
 
@@ -22,10 +17,6 @@ class Header extends React.Component{
 
 class SidebarArea extends React.Component{
 
-    constructor(props){
-        super(props)
-    }
-
     render(){
 
         return(
@@ -39,11 +30,6 @@ class SidebarArea extends React.Component{
 }
 
 class ContentArea extends React.Component{
-
-    constructor(props){
-
-        super(props);
-    }
 
     render(){
 
@@ -59,11 +45,6 @@ class ContentArea extends React.Component{
 
 class Wrapper extends React.Component{
 
-    constructor(props){
-        
-        super(props);
-    }
-
     render(){
 
         return(
@@ -77,10 +58,6 @@ class Wrapper extends React.Component{
 }
 
 class Mainlayout extends React.Component{
-
-    constructor(props){
-        super(props)
-    }
 
     render(){
 

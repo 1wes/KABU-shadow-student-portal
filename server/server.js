@@ -8,6 +8,7 @@ const forgotPassword=require('./middleware/forgot-password');
 const resetPassword=require('./middleware/resetPassword');
 const loginAuth=require('./middleware/login-auth');
 const logoutUser=require('./middleware/logout');
+const checkCookie=require('./middleware/check-cookie');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -17,8 +18,9 @@ app.use(cookieParser());
 app.use("/student", login);
 app.use("/student", forgotPassword);
 app.use("/student", resetPassword);
-app.use("/student/", loginAuth);
+app.use("/student", loginAuth);
 app.use("/student", logoutUser);
+app.use("/student", checkCookie);
 
 app.listen(port, ()=>{
     console.log(node_env=='production' || node_env=='development' ? `The server is running at port ${port}` : `Please select your Node environment`);

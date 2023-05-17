@@ -136,8 +136,8 @@ img{
     position: absolute;
     z-index: 100000;
     right: 0;
-    /* display: none; */
-    margin-top: 9.4em;
+    display: none;
+    margin-top: 9.5em;
     background-color:white;
     width: 10em;
     border-radius: 4px;

@@ -51,7 +51,6 @@ nav{
     justify-content: flex-end;
     padding: 0 20px 0 20px;
     align-items: center;
-    cursor: pointer;
 }
 
 .search-bar{
@@ -97,6 +96,8 @@ input:focus{
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
+    position: relative;
 }
 
 .profile-picture{
@@ -130,3 +131,49 @@ img{
     color: rgb(216,235,211);
     font-size: 8px;
 }
+
+.profile-dropdown{
+    position: absolute;
+    z-index: 100000;
+    right: 0;
+    /* display: none; */
+    margin-top: 9.4em;
+    background-color:white;
+    width: 10em;
+    border-radius: 4px;
+}
+
+.profile-dropdown-content li{
+    list-style: none;
+    color: rgb(108,117,125);
+    padding: 10px;
+    font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+    font-size: 14px;
+}
+
+.profile-dropdown-content li:hover{
+    background-color:rgba(108, 117, 125, 0.096) ;
+}
+
+.profile-dropdown-content li i{
+    margin-left: 10px;
+}
+
+.profile-link{
+    margin: 4px 0 0 0;
+
+}
+
+.logout-link{
+    margin: 0 0 4px 0;
+}
+
+.profile-link span{
+    margin-left: 13px;
+}
+
+.logout-link span{
+    margin-left: 9px;
+}
+

@@ -98,6 +98,7 @@ input:focus{
     align-items: center;
     cursor: pointer;
     position: relative;
+    user-select: none;
 }
 
 .profile-picture{
@@ -141,6 +142,11 @@ img{
     background-color:white;
     width: 10em;
     border-radius: 4px;
+    transition: all 1s;
+}
+
+.show-profile-dropdown{
+    display: block;
 }
 
 .profile-dropdown-content li{

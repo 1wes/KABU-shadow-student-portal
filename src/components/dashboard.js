@@ -3,6 +3,7 @@ import Mainlayout, { Header, Wrapper, ContentArea, SidebarArea } from './site-la
 import Navbar from './navbar';
 import './dashboard.css';
 import axios from 'axios';
+import Sidebar from './sidebar';
 
 let DashboardPageTitle=()=>{
 
@@ -23,7 +24,8 @@ class Dashboard extends React.Component{
         super(props);
 
         this.state={
-            loggedInUser:''
+            loggedInUser:'',
+            logout:false
         }
     }
 
@@ -36,7 +38,7 @@ class Dashboard extends React.Component{
             });
 
         }).catch(err=>{
-            console.log(err)
+            
         });
     }
 
@@ -51,7 +53,7 @@ class Dashboard extends React.Component{
 
                     <Wrapper className='section-separation'>
                         <SidebarArea className='sidebar-section'>
-                            Am the sidebar
+                            <Sidebar/>
                         </SidebarArea>
 
                         <ContentArea className='content-section'>

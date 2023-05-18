@@ -17,31 +17,37 @@ router.post("/login", (req, res)=>{
             throw err
         }
 
-        var hashedPassword=result[0].password;
+        if(result.length!=0){
 
-        let passwordMatch=await comparePassword(password, hashedPassword);
+            var hashedPassword=result[0].password;
 
-        if(!passwordMatch || result.length==0){
+            let passwordMatch=await comparePassword(password, hashedPassword);
+
+            if(!passwordMatch){
             
-            return res.status(401).send("Unauthorized")
-        }
+                return res.status(401).send("Unauthorized")
+            }
 
-        // if the user exists and password checks out
-        let token=generateToken({reg_no:result[0].reg_no});
+            // if the user exists and password checks out
+            let token=generateToken({reg_no:result[0].reg_no});
 
-        res.cookie("authorizationCookie", token, {
-            httpOnly:true,
-            sameSite:'lax',
-            secure:true
-        });
+            res.cookie("authorizationCookie", token, {
+                httpOnly:true,
+                sameSite:'lax',
+                secure:true
+            });
 
-        return res.status(201).json({
-            success:true,
-            responseData:{
+            return res.status(201).json({
+                success:true,
+                responseData:{
                 // token:token,
                 reg_no:result[0].reg_no
-            }
-        })
+                }
+            })
+        }else{
+            return res.status(403).send("Forbidden");
+        }
+
     });
 
 });

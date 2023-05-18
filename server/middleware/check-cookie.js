@@ -8,19 +8,19 @@ router.get('/checkCookie',tokenVerifier, (req, res)=>{
 
         case 200:
 
-            res.send(statusCode);
+            res.sendStatus(statusCode);
 
             break;
         
         case 401:
 
-            res.send(statusCode);
+            res.sendStatus(statusCode);
 
             break;
 
         case 403:
 
-            res.send(statusCode);
+            res.sendStatus(statusCode);
 
             break;
     }

@@ -7,8 +7,11 @@
     color: white;
     font-family: Roboto, sans-serif;
     font-size:14px;
-    margin: 20px 0 0 10px;
+    margin: 20px 0 0 5px;
     transition: all .5s;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
 .sidebar-content li:hover{
@@ -16,15 +19,20 @@
     cursor: pointer;
 }
 
-.sidebar-content li i{
-    margin-right: 15px;
-}
-
-.sidebar-content-title{
+.sidebar-menu-title{
     margin: 0 0 25px 0;
+    width: 100%;
 }
 
-.sidebar-content-title label{
+.sidebar-content li i{
+    width: 15%;
+}
+
+.sidebar-menu-item{
+    width: 85%;
+}
+
+.sidebar-menu-title label{
     text-transform: uppercase;
     color: rgb(0,174,238);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
@@ -33,4 +41,5 @@
     font-style: normal;
     font-size: x-small;
     font-weight: bold;
+    width: 10%;
 }

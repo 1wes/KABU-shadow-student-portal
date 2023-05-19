@@ -30,7 +30,7 @@ class SidebarArea extends React.Component{
 
         return(
             <React.Fragment>
-                <div className={this.props.className}>
+                <div className={this.props.className} id='sidebar-area'>
                     {this.props.children}
                 </div>
             </React.Fragment>
@@ -49,7 +49,7 @@ class ContentArea extends React.Component{
 
         return(
             <React.Fragment>
-                <div className={this.props.className}>
+                <div className={this.props.className} id='content-area'>
                     {this.props.children}
                 </div>
             </React.Fragment>

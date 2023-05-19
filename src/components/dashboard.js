@@ -25,7 +25,6 @@ class Dashboard extends React.Component{
 
         this.state={
             loggedInUser:'',
-            logout:false
         }
     }
 
@@ -38,7 +37,7 @@ class Dashboard extends React.Component{
             });
 
         }).catch(err=>{
-            
+            console.log(err);
         });
     }
 

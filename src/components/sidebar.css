@@ -43,3 +43,12 @@
     font-weight: bold;
     width: 10%;
 }
+
+.sidebar-footer{
+    max-width: 100%;
+    color: white;
+    background-color: rgb(153,49,51);
+    position: sticky;
+    bottom: 0;
+    height: 15px;
+}

@@ -134,6 +134,9 @@ class Sidebar extends React.Component{
                         </li>
                     </div>
                 </div>
+
+                <div className='sidebar-footer'>
+                </div>
             </React.Fragment>
         )
     }

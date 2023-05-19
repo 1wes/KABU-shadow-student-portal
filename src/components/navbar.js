@@ -25,6 +25,14 @@ class Navbar extends React.Component{
 
     collapseSidebar=()=>{
         let collapsableNav=this.collapseNav.current;
+        let navMenu=document.getElementById('nav-menu');
+        let sidebar=document.getElementById('sidebar-area');
+        let contentSection=document.getElementById('content-area');
+
+        collapsableNav.classList.toggle('min-collapsable-nav');
+        navMenu.classList.toggle('max-navbar-menu');
+        sidebar.classList.toggle('min-sidebar-section');
+        contentSection.classList.toggle('max-content-section')
     }
 
     toggleProfileDropdown=()=>{
@@ -72,7 +80,7 @@ class Navbar extends React.Component{
                     logout &&(<Navigate to={'/'} />)
                 }
 
-                <nav>
+                <nav id='navbar'>
                     <div className='collapsable-nav' ref={this.collapseNav}>
                         <Link to={'#'}>
                             <img src={require('../kaba-name.png')} alt='Kabarak Logo' />

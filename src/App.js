@@ -115,6 +115,19 @@ class App extends React.Component{
     this.togglePasswordVisibility=this.togglePasswordVisibility.bind(this);
   }
 
+  componentDidMount=async()=>{
+    
+    await checkToken().then(res=>{
+      this.setState({
+        login:true
+      });
+    }).catch(err=>{
+      this.setState({
+        login:false
+      })
+    })
+  }
+
   handleRegChange=(newRegNo)=>{
 
     if(newRegNo!==''){
@@ -218,8 +231,8 @@ class App extends React.Component{
     }).catch(err=>{
 
       this.setState({
-        loginMessage:`Either username or password is wrong. If forgotten your password, then reset`
-      })
+        loginMessage:`Either username or password is wrong. If forgotten your password, then reset`,
+      });
 
       this.delayModalDisplay=setTimeout(()=>{
 
@@ -254,20 +267,6 @@ class App extends React.Component{
           modalIsOpen:!this.state.modalIsOpen
       })
     }
-  }
-
-  componentDidMount=async()=>{
-    
-    await checkToken().then(res=>{
-      this.setState({
-        login:true
-      })
-    }).catch(err=>{
-      this.setState({
-        login:false
-      })
-    })
-
   }
 
   componentWillUnmount(){

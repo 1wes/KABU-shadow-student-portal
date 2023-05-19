@@ -31,7 +31,7 @@ class Dashboard extends React.Component{
 
     componentDidMount(){
 
-        axios.get("/student/loginAuth").then(res=>{
+        axios.get("/student/loginAuth", {withCredentials:true}).then(res=>{
             
             this.setState({
                 loggedInUser:res.data.username

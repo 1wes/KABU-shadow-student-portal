@@ -15,17 +15,26 @@
 }
 
 .sidebar-section{
-    height: 100vh;
+    height: 100%;
     background-color: rgb(153,49,51);
     left: 0;
     width: 15%;
+    transition: 1s ease;
+}
+
+.min-sidebar-section{
+    width: 5%;
 }
 
 .content-section{
-    background-color: green;
+    background-color: rgb(222,231,245);
     height: 100vh;
     width: 85%;
-    background-color: rgb(223,232,247);
+    transition: 1s ease;
+}
+
+.max-content-section{
+    width: 95%;
 }
 
 

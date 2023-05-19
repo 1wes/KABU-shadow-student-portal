@@ -21,7 +21,7 @@ class Sidebar extends React.Component{
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faUser} />
+                                <FontAwesomeIcon icon={faUser} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Personal Profile</span>
                         </li>
@@ -34,21 +34,21 @@ class Sidebar extends React.Component{
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faRegistered} />
+                                <FontAwesomeIcon icon={faRegistered} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Course Registration</span>
                         </li>
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faCodePullRequest} />
+                                <FontAwesomeIcon icon={faCodePullRequest} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Academic Requistion</span>
                         </li>
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faNoteSticky} />
+                                <FontAwesomeIcon icon={faNoteSticky} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Course Evaluation</span>
                         </li>
@@ -61,28 +61,28 @@ class Sidebar extends React.Component{
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faYenSign}  />
+                                <FontAwesomeIcon icon={faYenSign} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Fee Statement</span>
                         </li>
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faFolderMinus}  />
+                                <FontAwesomeIcon icon={faFolderMinus} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Receipts</span>
                         </li>
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faSterlingSign}  />
+                                <FontAwesomeIcon icon={faSterlingSign} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Fee Structure</span>
                         </li>
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faYenSign}  />
+                                <FontAwesomeIcon icon={faYenSign} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Legacy Statement</span>
                         </li>
@@ -95,7 +95,7 @@ class Sidebar extends React.Component{
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faBed}  />
+                                <FontAwesomeIcon icon={faBed} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Hostel Booking</span>
                         </li>
@@ -108,14 +108,14 @@ class Sidebar extends React.Component{
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faArrowsDownToLine}  />
+                                <FontAwesomeIcon icon={faArrowsDownToLine} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Exam Card</span>
                         </li>
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faCloudArrowDown}  />
+                                <FontAwesomeIcon icon={faCloudArrowDown} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Transcript</span>
                         </li>
@@ -128,7 +128,7 @@ class Sidebar extends React.Component{
 
                         <li>
                             <i>
-                                <FontAwesomeIcon icon={faGear}  />
+                                <FontAwesomeIcon icon={faGear} fixedWidth />
                             </i>
                             <span className='sidebar-menu-item'>Settings</span>
                         </li>

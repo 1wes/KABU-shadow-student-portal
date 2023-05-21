@@ -75,7 +75,7 @@
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, 
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";   
     font-size: medium;
-    transition: .8s ease;
+    transition: .1s ease-in-out;
 }
 
 .not-found-btn i{
@@ -84,4 +84,5 @@
 
 .not-found-btn:hover{
     cursor: pointer;
+    padding: 22px;
 }

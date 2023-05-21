@@ -21,6 +21,11 @@ class NotFound extends React.Component{
                             <b className='main-text'>
                                 Page Not Found
                             </b>
+
+                            <div className='error-code-image'>
+                                <img src={require('../404.png')} />
+                            </div>
+
                         </div>
                     </div>
                 </div>

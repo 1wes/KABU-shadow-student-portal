@@ -31,6 +31,7 @@
     height: auto;
     width: 12em;
     padding: 10px 0 0 10px;
+    cursor: pointer;
 }
 
 .body-content{
@@ -49,9 +50,38 @@
 
 .error-code-image{
     width: 60%;
+    display: flex;
+    align-items: center;
+    height: 70vh;
 }
 
 .error-code-image img{
     height: auto;
     width: 50%;
+    margin-left: -2.5em;
+}
+
+.redirect-button{
+    margin-left: 3px;
+}
+
+.not-found-btn{
+    background-color: rgb(153, 49, 51);
+    border: none;
+    padding: 20px;
+    border-radius: 4px;
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, 
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";   
+    font-size: medium;
+    transition: .8s ease;
+}
+
+.not-found-btn i{
+    margin-left: 10px;
+}
+
+.not-found-btn:hover{
+    cursor: pointer;
 }

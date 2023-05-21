@@ -1,0 +1,45 @@
+.not-found-wrapper{
+    background-color: rgb(245,246,248);
+    height: 100vh;
+}
+
+.page-content{
+    height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.decoration{
+    position: absolute;
+    background-color: rgb(153, 49, 51);
+    z-index: 10000;
+    height: 60vh;
+    right: 0%;
+    margin-top: -2.4em;
+    width: 25%;
+    transform-origin: top;
+    border-bottom-left-radius: 999px;
+    transform: translateX(40%);
+}
+
+.header{
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(153, 49, 51, 0.205);
+}
+
+.header img{
+    height: auto;
+    width: 12em;
+    padding: 10px 0 0 10px;
+}
+
+.body-content{
+    padding: 40px 0 0 10px;
+}
+
+.main-text{
+    font-size: 60px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, 
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: rgb(153, 49, 51);
+}

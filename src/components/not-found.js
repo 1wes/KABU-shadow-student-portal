@@ -1,6 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './not-found.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
+
+let RedirectButton=(props)=>{
+
+    return(
+        <React.Fragment>
+            <Link to={'/'}>
+                <button type='button' className='not-found-btn'>
+                    {props.buttonMessage} <span>
+                        <i>
+                            <FontAwesomeIcon  icon={faArrowRightLong} /> 
+                        </i>
+                    </span>
+                </button>
+            </Link>
+        </React.Fragment>
+    )
+}
 
 class NotFound extends React.Component{
 
@@ -18,9 +37,13 @@ class NotFound extends React.Component{
                             <div className='decoration'>
                                 
                             </div>
-                            <b className='main-text'>
-                                Page Not Found
-                            </b>
+                            <div className='main-text'>
+                                <p>Page Not Found !!!</p>
+
+                                <div className='redirect-button'>
+                                    <RedirectButton buttonMessage='Take me back to Login page' />
+                                </div>
+                            </div>
 
                             <div className='error-code-image'>
                                 <img src={require('../404.png')} />

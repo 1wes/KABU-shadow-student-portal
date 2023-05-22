@@ -15,7 +15,7 @@
 }
 
 .sidebar-section{
-    height: 100vh;
+    height: 100%;
     background-color: rgb(153,49,51);
     left: 0;
     width: 15%;

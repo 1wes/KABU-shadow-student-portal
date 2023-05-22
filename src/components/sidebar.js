@@ -13,9 +13,9 @@ class Sidebar extends React.Component{
 
         return(
             <React.Fragment>
-                <div className='sidebar-content'>
-                    <div className='sidebar-menu-title' id='dashboard-title'>
-                        <label>
+                <div className='sidebar-content' id='sidebar'>
+                    <div className='sidebar-menu-category' id='menu-title'>
+                        <label className='sidebar-menu-title'>
                             Dashboard
                         </label>
 
@@ -27,8 +27,8 @@ class Sidebar extends React.Component{
                         </li>
                     </div>
 
-                    <div className='sidebar-menu-title' id='academics-title'>
-                        <label>
+                    <div className='sidebar-menu-category' id='academics-title'>
+                        <label className='sidebar-menu-title'>
                             Academics
                         </label>
 
@@ -54,8 +54,8 @@ class Sidebar extends React.Component{
                         </li>
                     </div>
 
-                    <div className='sidebar-menu-title' id='financials-title'>
-                        <label>
+                    <div className='sidebar-menu-category' id='financials-title'>
+                        <label className='sidebar-menu-title'>
                             Financials
                         </label>
 
@@ -88,8 +88,8 @@ class Sidebar extends React.Component{
                         </li>
                     </div>
 
-                    <div className='sidebar-menu-title' id='accomodation-title'>
-                        <label>
+                    <div className='sidebar-menu-category' id='accomodation-title'>
+                        <label className='sidebar-menu-title'>
                             Accomodation
                         </label>
 
@@ -101,8 +101,8 @@ class Sidebar extends React.Component{
                         </li>
                     </div>
 
-                    <div className='sidebar-menu-title' id='examination-title'>
-                        <label>
+                    <div className='sidebar-menu-category' id='examination-title'>
+                        <label className='sidebar-menu-title'>
                             Examination
                         </label>
 
@@ -121,8 +121,8 @@ class Sidebar extends React.Component{
                         </li>
                     </div>
 
-                    <div className='sidebar-menu-title' id='settings-title'>
-                        <label>
+                    <div className='sidebar-menu-category' id='settings-title'>
+                        <label className='sidebar-menu-title'>
                             Settings
                         </label>
 

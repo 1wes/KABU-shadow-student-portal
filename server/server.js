@@ -6,7 +6,7 @@ const cookieParser=require('cookie-parser');
 const login=require('./login');
 const forgotPassword=require('./middleware/forgot-password');
 const resetPassword=require('./middleware/resetPassword');
-const loginAuth=require('./middleware/login-auth');
+const loginAuth=require('./middleware/basic-info');
 const logoutUser=require('./middleware/logout');
 const checkCookie=require('./middleware/check-cookie');
 

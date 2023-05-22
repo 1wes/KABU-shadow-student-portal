@@ -4,6 +4,7 @@ import Navbar from './navbar';
 import './dashboard.css';
 import axios from 'axios';
 import Sidebar from './sidebar';
+import Card from './card';
 
 let DashboardPageTitle=()=>{
 
@@ -14,6 +15,25 @@ let DashboardPageTitle=()=>{
             </div>
         </React.Fragment>
     )
+}
+
+class BasicInfo extends React.Component{
+
+    constructor(props){
+
+        super(props);
+    }
+
+    render(){
+
+        return(
+            <React.Fragment>
+                <div>
+
+                </div>
+            </React.Fragment>
+        )
+    }
 }
 
 
@@ -57,6 +77,7 @@ class Dashboard extends React.Component{
 
                         <ContentArea className='content-section'>
                             <DashboardPageTitle />
+                            <Card  cardTitle={'Basic Information'} />
                         </ContentArea>
                     </Wrapper>
                 </Mainlayout>

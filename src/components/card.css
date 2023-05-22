@@ -1,0 +1,17 @@
+.general-card{
+    margin: 30px 26px 0 10px;
+}
+
+.card-title{
+    font-family: Roboto, sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(210,174,109);
+    padding: 10px 0 10px 8px;
+}
+
+.card-content{
+    height: 100vh;
+    background-color: #FFFFFF;
+}

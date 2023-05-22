@@ -28,11 +28,18 @@ class Navbar extends React.Component{
         let navMenu=document.getElementById('nav-menu');
         let sidebar=document.getElementById('sidebar-area');
         let contentSection=document.getElementById('content-area');
+        let logoImage=document.getElementById('kaba-logo');
+        let sidebarItemTitle=document.getElementsByClassName('sidebar-menu-title')
 
         collapsableNav.classList.toggle('min-collapsable-nav');
         navMenu.classList.toggle('max-navbar-menu');
         sidebar.classList.toggle('min-sidebar-section');
-        contentSection.classList.toggle('max-content-section')
+        contentSection.classList.toggle('max-content-section');
+        logoImage.classList.toggle("min-logo");
+        
+        for(let i=0; i<sidebarItemTitle.length; i++){
+            sidebarItemTitle[i].classList.toggle('hide-sidebar-menu-title')
+        }
     }
 
     toggleProfileDropdown=()=>{
@@ -83,7 +90,7 @@ class Navbar extends React.Component{
                 <nav id='navbar'>
                     <div className='collapsable-nav' ref={this.collapseNav}>
                         <Link to={'#'}>
-                            <img src={require('../kaba-name.png')} alt='Kabarak Logo' />
+                            <img src={require('../kaba-name.png')} alt='Kabarak Logo' id='kaba-logo' />
                         </Link>
                     </div>
 

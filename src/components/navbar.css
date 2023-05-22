@@ -15,18 +15,19 @@ nav{
     width: 100%;
     max-width: 92%; 
     padding: 5px 10px 1px 10px;
+    transition: .1s ease;
 }
 
 .min-collapsable-nav{
     width: 4.5%;
-    overflow-x: hidden;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 }
 
-.min-logo{
-    height: auto;
-    width: 50em !important;
+.min-collapsable-nav img{
+    height: 90%;
+    width: 70em;
+    padding: 5px 0 20px 0;
+    max-width: 330%;
 }
 
 .navbar-menu{

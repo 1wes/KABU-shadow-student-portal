@@ -1,5 +1,10 @@
 .sidebar-content{
     padding: 25px 0 0 17px;
+    transition:.1s ease;
+}
+
+.min-sidebar-content{
+    padding-top: 0;
 }
 
 .sidebar-content li{
@@ -12,6 +17,11 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    transition: .1s ease;
+}
+
+.min-sidebar-content li{
+    margin-bottom: 38px;
 }
 
 .sidebar-content li:hover{
@@ -19,7 +29,7 @@
     cursor: pointer;
 }
 
-.sidebar-menu-title{
+.sidebar-menu-category{
     margin: 0 0 24px 0;
     width: 100%;
 }
@@ -30,9 +40,14 @@
 
 .sidebar-menu-item{
     width: 85%;
+    transition: .1s ease;
 }
 
-.sidebar-menu-title label{
+.hide-sidebar-menu-item{
+    display: none;
+}
+
+.sidebar-menu-title{
     text-transform: uppercase;
     color: rgb(0,174,238);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
@@ -42,6 +57,11 @@
     font-size: x-small;
     font-weight: bold;
     width: 10%;
+    transition: .1s ease;
+}
+
+.hide-sidebar-menu-title{
+    display: none;
 }
 
 .sidebar-footer{

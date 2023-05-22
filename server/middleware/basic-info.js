@@ -20,7 +20,13 @@ router.get('/basicInfo', tokenVerifier, (req, res)=>{
 
                 let UserInfo={
                     reg_no:tokenInfo.reg_no.reg_no,
-                    username:`${result[0].surname} ${result[0].first_name} ${result[0].last_name}`
+                    username:`${result[0].surname} ${result[0].first_name} ${result[0].last_name}`,
+                    id:result[0].id_no,
+                    gender:result[0].gender,
+                    address:result[0].address,
+                    email:result[0].email,
+                    dob:result[0].dob,
+                    campus:result[0].campus
                 }
 
                 res.send(UserInfo)

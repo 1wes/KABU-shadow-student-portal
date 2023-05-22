@@ -1,11 +1,8 @@
 .dashboard-page-title{
     background-color: rgb(254,254,254);
-    width: 100%;
-    display: flex;
     align-items: center;
     font-family: Roboto, sans-serif;
     font-size: 17px;
-    line-height: 20px;
     color: #323a46;
     padding: 15px 0 15px 6px;
     font-weight: bold;

@@ -14,6 +14,8 @@ let tokenVerifier=(req, res, next)=>{
                     errorMessage:err.message
                 }
 
+                res.clearCookie('authorizationCookie', {domain:'localhost', path:'/'});
+
                 return new Error(errorInfo);
             }
 

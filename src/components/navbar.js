@@ -28,7 +28,6 @@ class Navbar extends React.Component{
         let navMenu=document.getElementById('nav-menu');
         let sidebar=document.getElementById('sidebar-area');
         let contentSection=document.getElementById('content-area');
-        let logoImage=document.getElementById('kaba-logo');
         let sidebarItemTitle=document.getElementsByClassName('sidebar-menu-title');
         let sidebarMenuItem=document.getElementsByClassName('sidebar-menu-item');
         let minimizedSidebar=document.getElementById('sidebar')
@@ -37,7 +36,6 @@ class Navbar extends React.Component{
         navMenu.classList.toggle('max-navbar-menu');
         sidebar.classList.toggle('min-sidebar-section');
         contentSection.classList.toggle('max-content-section');
-        logoImage.classList.toggle("min-logo");
         minimizedSidebar.classList.toggle('min-sidebar-content');
         
         for(let i=0; i<sidebarItemTitle.length; i++){

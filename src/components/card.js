@@ -1,6 +1,15 @@
 import React from "react";
 import './card.css';
 
+let GenericButton=(props)=>{
+
+    return(
+        <button className="generic-btn" id={props.id}>
+            <span className="generic-btn-msg">{props.btnMessage}</span>
+        </button>
+    )
+}
+
 class Card extends React.Component{
 
     render(){
@@ -87,6 +96,43 @@ class Card extends React.Component{
 
                                 </span>
                             </div>
+                        </div>
+
+                        <div className="info-section"  id="token-and-calendar">
+                            <div className="image-section">
+
+                            </div>
+                            <div className="token-section">
+                                <span>
+                                    <div id="token-details">
+                                        <div>
+                                            <GenericButton btnMessage='Get Catering Token' id='generic-token-btn'/>
+                                        </div>
+                                        <div className="token-label">
+                                            Current Catering Token:
+                                        </div>
+
+                                        <div>
+                                            {this.props.cateringToken}
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+
+                            <div className="calendar-section">
+                                <span>
+                                    <div>
+                                        <div>
+                                            <GenericButton btnMessage='Get Academic Calendar' id='generic-calendar-btn' />
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+
+                            <div className="bioinfo-section3">
+                            </div>
+
+
                         </div>
                     </div>
                 </div>

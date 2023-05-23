@@ -157,3 +157,25 @@
 #generic-calendar-btn{
     background-color: rgb(26,188,156);
 }
+
+.acad-and-fee{
+    display: flex;
+    width: 100%;
+    margin-top: -1.75em;
+}
+
+.academic-info{
+    width: 50%;
+}
+
+.fees-info{
+    width: 50%;
+}
+
+#acad-fee-info-key{
+    width: 40%;
+}
+
+#acad-fee-info-value{
+    width: 60%;
+}

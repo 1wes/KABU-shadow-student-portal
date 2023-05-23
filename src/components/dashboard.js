@@ -4,7 +4,7 @@ import Navbar from './navbar';
 import './dashboard.css';
 import axios from 'axios';
 import Sidebar from './sidebar';
-import Card from './card';
+import StudentInfo from './card';
 
 let DashboardPageTitle=()=>{
 
@@ -88,7 +88,7 @@ class Dashboard extends React.Component{
 
                         <ContentArea className='content-section'>
                             <DashboardPageTitle />
-                            <Card  cardTitle={cardTitle} name={loggedInUser} gender={gender} idNo={idNo} 
+                            <StudentInfo name={loggedInUser} gender={gender} idNo={idNo} 
                             regNo={regNo} address={address} email={email} dob={dob} campus={campus} />
                         </ContentArea>
                     </Wrapper>

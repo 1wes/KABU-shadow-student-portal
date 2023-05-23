@@ -120,6 +120,18 @@ let CalendarSection=(props)=>{
     )
 }
 
+let AcademicAndFeesInfo=(props)=>{
+
+    return(
+
+        <React.Fragment>
+            <div className="acad-and-fee">
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
 class StudentInfo extends React.Component{
 
     render(){
@@ -226,6 +238,69 @@ class StudentInfo extends React.Component{
                         </InfoSection>
                     </CardContent>
                 </Card>
+
+                <AcademicAndFeesInfo>
+                    <div className="academic-info">
+                        <Card cardTitle='Academic Information'>
+                            <CardContent>
+                                <InfoSection>
+                                    <span className="key" id="acad-fee-info-key">
+                                        <li>
+                                            Current Programme
+                                        </li>
+                                        <li>
+                                            Attempted Units
+                                        </li>
+                                        <li>
+                                            Registered Units
+                                        </li>
+                                    </span>
+                                    <span className="value" id="acad-fee-info-value">
+                                        <li>
+                                            {this.props.currentProgramme}
+                                        </li>
+                                        <li>
+                                            {this.props.attemptedUnits}
+                                        </li>
+                                        <li>
+                                            {this.props.registeredUnits}
+                                        </li>   
+                                    </span>
+                                </InfoSection>
+                            </CardContent>
+                        </Card>
+                    </div>
+                    <div className="fees-info">
+                        <Card cardTitle='Fee Payment'>
+                            <CardContent>
+                                <InfoSection>
+                                    <span className="key" id="acad-fee-info-key">
+                                        <li>
+                                            Total Billed
+                                        </li>
+                                        <li>
+                                            Total Paid
+                                        </li>
+                                        <li>
+                                            Fee Balance
+                                        </li>
+                                    </span>
+                                    <span className="value" id="acad-fee-info-value">
+                                        <li>
+                                            {this.props.totalBilled}
+                                        </li>
+                                        <li>
+                                            {this.props.totalPaid}
+                                        </li>
+                                        <li>
+                                            {this.props.balance}
+                                        </li>   
+                                    </span>
+                                </InfoSection>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </AcademicAndFeesInfo>
             </React.Fragment>
         )
     }

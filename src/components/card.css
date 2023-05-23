@@ -2,6 +2,11 @@
     margin: 30px 26px 0 10px;
 }
 
+.general-card li{
+    list-style: none;
+    margin: 0 0 30px 0;
+}
+
 .card-title{
     font-family: Roboto, sans-serif;
     color: white;
@@ -12,6 +17,81 @@
 }
 
 .card-content{
-    height: 100vh;
     background-color: #FFFFFF;
+}
+
+.info-section{
+    display: flex;
+    flex-direction: row;
+    padding: 40px 30px 0 25px;
+}
+
+.info-section div:not(:first-child){
+    margin-left: 25px;
+}
+
+.info-section div{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.253);
+    padding-bottom: 20px;
+}
+
+.image-section{
+    width: 16%;
+    height: 100%;
+}
+
+.image-section img{
+    height: auto;
+    width: 60%;
+}
+
+.bioinfo-section{
+    width: 28%;
+    display: flex;
+}
+
+.bioinfo-section2{
+    width: 28%;
+    display: flex;
+
+}
+
+.bioinfo-section3{
+    width: 28%;
+    display: flex;
+}
+
+.key{
+    width: 50%;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", 
+    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.value{
+    width: 50%;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", 
+    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 11px;
+    color: rgb(128, 128, 0);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.value li{
+    margin: 5px 0 33px 0;
+}
+
+.value li:last-child{
+    text-transform:capitalize;
+}
+
+.bioinfo-section3 li:last-child{
+    text-transform: uppercase;
+}
+
+.bioinfo-section3 li:nth-child(2){
+    text-transform: lowercase;
 }

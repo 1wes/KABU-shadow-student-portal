@@ -15,7 +15,7 @@
 }
 
 .sidebar-section{
-    height: 100%;
+    max-height: 300%;
     background-color: rgb(153,49,51);
     left: 0;
     width: 15%;
@@ -24,12 +24,11 @@
 
 .min-sidebar-section{
     width: 4.5%;
-    height: 100vh;
 }
 
 .content-section{
     background-color: rgb(222,231,245);
-    height: 100vh;
+    max-height: 100%;
     width: 85%;
     transition: .1s ease;
 }

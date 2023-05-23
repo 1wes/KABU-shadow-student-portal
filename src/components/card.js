@@ -10,23 +10,129 @@ let GenericButton=(props)=>{
     )
 }
 
-class Card extends React.Component{
+let Card=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="general-card">
+                <div className="card-title">
+                    {props.cardTitle}
+                </div>
+
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let CardContent=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="card-content">
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let InfoSection=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="info-section" id={props.id}>
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let ImageSection=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="image-section">
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let BioinfoSection=(props)=>{
+
+    return(
+
+        <React.Fragment>
+            <div className="bioinfo-section">
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let BioinfoSection2=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="bioinfo-section2">
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let BioinfoSection3=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="bioinfo-section3">
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let TokenSection=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="token-section">
+                <span>
+                    {props.children}
+                </span>
+            </div>
+        </React.Fragment>
+    )
+}
+
+let CalendarSection=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="calendar-section">
+                <span>
+                    <div>
+                        {props.children}
+                    </div>
+                </span>
+            </div>
+        </React.Fragment>
+    )
+}
+
+class StudentInfo extends React.Component{
 
     render(){
 
         return(
             <React.Fragment>
-                <div className="general-card">
-                    <div className="card-title">
-                        {this.props.cardTitle}
-                    </div>
-                    <div className="card-content">
-                        <div className="info-section">
-                            <div className="image-section">
+                <Card cardTitle={'Basic Information'}>
+                    <CardContent>
+                        <InfoSection>
+                            <ImageSection>
                                 <img src={require('../profile.png')} alt="image-placeholder" />
-                            </div>
-
-                            <div className="bioinfo-section">
+                            </ImageSection>
+                            <BioinfoSection>
                                 <span className="key">
                                     <li>
                                         Reg. No
@@ -55,9 +161,8 @@ class Card extends React.Component{
                                         {this.props.gender}
                                     </li>
                                 </span>
-                            </div>
-
-                            <div className="bioinfo-section2">
+                            </BioinfoSection>
+                            <BioinfoSection2>
                                 <span className="key">
 
                                 </span>
@@ -75,9 +180,8 @@ class Card extends React.Component{
                                         Campus
                                     </li>
                                 </span>
-                            </div>
-
-                            <div className="bioinfo-section3">
+                            </BioinfoSection2>
+                            <BioinfoSection3>
                                 <span className="value">
                                     <li>
                                         {this.props.address}
@@ -93,52 +197,37 @@ class Card extends React.Component{
                                     </li>
                                 </span>
                                 <span className="value">
-
                                 </span>
-                            </div>
-                        </div>
+                            </BioinfoSection3>
+                        </InfoSection>
 
-                        <div className="info-section"  id="token-and-calendar">
-                            <div className="image-section">
-
-                            </div>
-                            <div className="token-section">
-                                <span>
-                                    <div id="token-details">
-                                        <div>
-                                            <GenericButton btnMessage='Get Catering Token' id='generic-token-btn'/>
-                                        </div>
-                                        <div className="token-label">
-                                            Current Catering Token:
-                                        </div>
-
-                                        <div>
-                                            {this.props.cateringToken}
-                                        </div>
-                                    </div>
-                                </span>
-                            </div>
-
-                            <div className="calendar-section">
-                                <span>
+                        <InfoSection id='token-and-calendar'>
+                            <ImageSection />
+                            <TokenSection>
+                                <div id="token-details">
                                     <div>
-                                        <div>
-                                            <GenericButton btnMessage='Get Academic Calendar' id='generic-calendar-btn' />
-                                        </div>
+                                        <GenericButton btnMessage='Get Catering Token' id='generic-token-btn'/>
                                     </div>
-                                </span>
-                            </div>
+                                    <div className="token-label">
+                                        Current Catering Token:
+                                    </div>
 
-                            <div className="bioinfo-section3">
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
+                                    <div>
+                                        {this.props.cateringToken}
+                                    </div>
+                                </div>
+                            </TokenSection>
+                            <CalendarSection>
+                                <div>
+                                    <GenericButton btnMessage='Get Academic Calendar' id='generic-calendar-btn' />
+                                </div>
+                            </CalendarSection>
+                            <BioinfoSection3/>
+                        </InfoSection>
+                    </CardContent>
+                </Card>
             </React.Fragment>
         )
     }
 }
-export default Card;
+export default StudentInfo;

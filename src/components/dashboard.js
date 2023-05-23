@@ -45,6 +45,7 @@ class Dashboard extends React.Component{
 
         this.state={
             loggedInUser:'',
+
         }
     }
 
@@ -53,7 +54,14 @@ class Dashboard extends React.Component{
         axios.get("/student/basicInfo", {withCredentials:true}).then(res=>{
             
             this.setState({
-                loggedInUser:res.data.username
+                loggedInUser:res.data.username,
+                regNo:res.data.reg_no,
+                idNo:res.data.id,
+                gender:res.data.gender,
+                address:res.data.address,
+                email:res.data.email,
+                dob:res.data.dob,
+                campus:res.data.campus
             });
 
         }).catch(err=>{
@@ -62,12 +70,15 @@ class Dashboard extends React.Component{
     }
 
     render(){
+
+        let cardTitle='Basic Information';
+        let{ loggedInUser,regNo, idNo, gender, address, email, dob, campus }=this.state;
         
         return(
             <React.Fragment>
                 <Mainlayout>
                     <Header className='page-header'>
-                        <Navbar loggedInUser={this.state.loggedInUser} />
+                        <Navbar loggedInUser={loggedInUser} />
                     </Header>
 
                     <Wrapper className='section-separation'>
@@ -77,7 +88,8 @@ class Dashboard extends React.Component{
 
                         <ContentArea className='content-section'>
                             <DashboardPageTitle />
-                            <Card  cardTitle={'Basic Information'} />
+                            <Card  cardTitle={cardTitle} name={loggedInUser} gender={gender} idNo={idNo} 
+                            regNo={regNo} address={address} email={email} dob={dob} campus={campus} />
                         </ContentArea>
                     </Wrapper>
                 </Mainlayout>

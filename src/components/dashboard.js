@@ -5,6 +5,10 @@ import './dashboard.css';
 import axios from 'axios';
 import Sidebar from './sidebar';
 import StudentInfo from './card';
+import Footnote from './footnote';
+import Currentyear from './current-year';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 
 let DashboardPageTitle=()=>{
 
@@ -17,25 +21,21 @@ let DashboardPageTitle=()=>{
     )
 }
 
-class BasicInfo extends React.Component{
+let DashboardFooter=()=>{
 
-    constructor(props){
-
-        super(props);
-    }
-
-    render(){
-
-        return(
-            <React.Fragment>
-                <div>
+    return(
+        <React.Fragment>
+            <div className='dashboard-footer'>
+                <div className='divider'>
 
                 </div>
-            </React.Fragment>
-        )
-    }
+                <div className='dashboard-footnote'>
+                    <span><Currentyear/></span><span><FontAwesomeIcon icon={faCopyright}/></span><span>Designed </span><span>by</span><span>Wes</span>
+                </div>
+            </div>
+        </React.Fragment>
+    )
 }
-
 
 class Dashboard extends React.Component{
 
@@ -90,6 +90,8 @@ class Dashboard extends React.Component{
                             <DashboardPageTitle />
                             <StudentInfo name={loggedInUser} gender={gender} idNo={idNo} 
                             regNo={regNo} address={address} email={email} dob={dob} campus={campus} />
+
+                            <DashboardFooter/>
                         </ContentArea>
                     </Wrapper>
                 </Mainlayout>

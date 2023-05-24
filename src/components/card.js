@@ -132,6 +132,41 @@ let AcademicAndFeesInfo=(props)=>{
     )
 }
 
+let ImportantDocument=(props)=>{
+
+    return(
+        <React.Fragment>
+            <div className="documents-section">
+                {props.children}
+            </div>
+        </React.Fragment>
+    )
+}
+
+let DocumentsTable=(props)=>{
+
+    return(
+        <React.Fragment>
+            <table>
+                <tr className="table-headers">
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        File Name
+                    </th>
+                    <th>
+                        Remarks
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </table>
+        </React.Fragment>
+    )
+}
+
 class StudentInfo extends React.Component{
 
     render(){
@@ -301,6 +336,18 @@ class StudentInfo extends React.Component{
                         </Card>
                     </div>
                 </AcademicAndFeesInfo>
+
+                <ImportantDocument>
+                    <Card cardTitle='Important Documents'>
+                        <CardContent>
+                            <InfoSection>
+                                <DocumentsTable>
+                                    
+                                </DocumentsTable>
+                            </InfoSection>
+                        </CardContent>
+                    </Card>
+                </ImportantDocument>
             </React.Fragment>
         )
     }

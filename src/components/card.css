@@ -191,13 +191,30 @@ table{
     border-spacing: 1px;
 }
 
+table tr:first-child{
+    counter-reset: rowNumber;
+}
+
+table tr{
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before{
+    content: counter(rowNumber);
+}
+
 .table-headers{
     background-color: black;
     color: white;
     text-align: left;
 }
 
-.table-headers th{
+tr{
+    color: black;
+    text-align: left; 
+}
+
+.table-headers th, tbody tr td{
     padding: 15px 0 15px 15px;
     font-size: 14px;
 }
@@ -216,4 +233,8 @@ tr th:nth-child(3){
 
 tr th:last-child{
     width: 10%;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(222, 231, 245, 0.5);
 }

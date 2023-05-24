@@ -174,8 +174,46 @@
 
 #acad-fee-info-key{
     width: 40%;
+    margin-bottom: 1.5em;
 }
 
 #acad-fee-info-value{
     width: 60%;
+    margin-bottom: 1.5em;
+}
+
+.documents-section{
+    margin-top: 3em;
+}
+
+table{
+    width: 100%;
+    border-spacing: 1px;
+}
+
+.table-headers{
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+.table-headers th{
+    padding: 15px 0 15px 15px;
+    font-size: 14px;
+}
+
+tr th:first-child{
+    width: 5%;
+}
+
+tr th:nth-child(2){
+    width: 42.5%;
+}
+
+tr th:nth-child(3){
+    width: 42.5%;
+}
+
+tr th:last-child{
+    width: 10%;
 }

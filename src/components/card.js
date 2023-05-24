@@ -164,33 +164,7 @@ let DocumentsTable=(props)=>{
                 </tr>
 
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Memo</td>
-                        <td>None</td>
-                        <td>Check</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Memo</td>
-                        <td>None</td>
-                        <td>Check</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Memo</td>
-                        <td>None</td>
-                        <td>Check</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Memo</td>
-                        <td>None</td>
-                        <td>Check</td>
-                    </tr>
+                    {props.children}
                 </tbody>
             </table>
         </React.Fragment>

@@ -148,20 +148,22 @@ let DocumentsTable=(props)=>{
     return(
         <React.Fragment>
             <table>
-                <tr className="table-headers">
-                    <th>
-                        #
-                    </th>
-                    <th>
-                        File Name
-                    </th>
-                    <th>
-                        Remarks
-                    </th>
-                    <th>
-                        Action
-                    </th>
-                </tr>
+                <thead>
+                    <tr className="table-headers">
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            File Name
+                        </th>
+                        <th>
+                            Remarks
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
 
                 <tbody>
                     {props.children}

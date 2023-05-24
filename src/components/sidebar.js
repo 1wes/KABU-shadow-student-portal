@@ -130,7 +130,7 @@ class Sidebar extends React.Component{
                             <i>
                                 <FontAwesomeIcon icon={faGear} fixedWidth />
                             </i>
-                            <span className='sidebar-menu-item'>Settings</span>
+                            <span className='sidebar-menu-item'>Change Password</span>
                         </li>
                     </div>
                 </div>

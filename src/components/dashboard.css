@@ -8,3 +8,32 @@
     font-weight: bold;
     border-bottom: 1px solid rgba(128, 128, 128, 0.3);
 }
+
+.dashboard-footer{
+    margin: 50px 26px 0 10px;
+    padding-bottom: 70px;
+}
+
+.divider{
+    background-color: white;
+    height: 2px;
+    width: 100%;
+}
+
+.dashboard-footnote{
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dashboard-footnote span{
+    font-size: 14px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", 
+    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: rgb(149,140,136);
+}
+
+.dashboard-footer span:last-child{
+    color: rgb(101,177,220);
+    cursor: pointer;
+}

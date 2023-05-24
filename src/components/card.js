@@ -162,6 +162,36 @@ let DocumentsTable=(props)=>{
                         Action
                     </th>
                 </tr>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Memo</td>
+                        <td>None</td>
+                        <td>Check</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Memo</td>
+                        <td>None</td>
+                        <td>Check</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Memo</td>
+                        <td>None</td>
+                        <td>Check</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Memo</td>
+                        <td>None</td>
+                        <td>Check</td>
+                    </tr>
+                </tbody>
             </table>
         </React.Fragment>
     )
